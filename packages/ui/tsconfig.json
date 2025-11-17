@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/typescript-config/react-library.json",
+  "extends": "@arctis/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist"
   },

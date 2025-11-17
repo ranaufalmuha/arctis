@@ -1,0 +1,289 @@
+ARCTIS MONOREPO – STRUCTURE NOTES
+=================================
+pnpm add prism-react-renderer --filter @arctis/ui
+=================================
+
+
+Tujuan:
+- Memisahkan "PRODUCT" (Arctis UI library) dan "WEBSITE" (docs + landing page).
+- Biar gampang dikembangin, dirawat, dan nanti bisa di-publish ke npm.
+
+Struktur utama:
+- apps/web      → Next.js app (landing page + docs)
+- packages/ui   → Arctis UI component library (bisa di-publish)
+- packages/eslint-config     → Shared eslint config
+- packages/typescript-config → Shared tsconfig
+
+======================================================================
+1. ROOT (./)
+======================================================================
+
+File penting di root:
+
+- package.json
+  - "dev": "turbo run dev"
+  - "build": "turbo run build"
+  - Semua perintah dijalankan dari root:
+    - pnpm dev        → jalanin web + dev tools lain
+    - pnpm build      → build semua
+    - pnpm lint       → lint semua
+    - pnpm check-types → cek type semua
+
+- turbo.json
+  - Atur pipeline Turborepo.
+  - "dev"      → menjalankan script dev di semua apps/packages yang punya.
+  - "build"    → build berurutan sesuai dependensi.
+  - "lint", "check-types" → untuk quality checks.
+
+- pnpm-workspace.yaml
+  - Definisikan mana saja folder yang dianggap workspace:
+    - "apps/*"
+    - "packages/*"
+
+======================================================================
+2. APPS/WEB – WEBSITE ARCTIS (Next.js)
+======================================================================
+
+Path: apps/web
+
+Fungsi:
+- Ini adalah WEBSITE Arctis:
+  - landing page
+  - halaman features
+  - halaman examples
+  - dokumentasi komponen (docs/components/Button, dsb.)
+- Meng-consume library dari @arctis/ui
+- Menggunakan Tailwind, GSAP, dsb. untuk tampilan
+
+Script penting (apps/web/package.json):
+- "dev": "next dev"
+- "build": "next build"
+- "lint": "eslint ."
+- "check-types": "next typegen && tsc --noEmit"
+
+Struktur yang direkomendasikan:
+
+apps/web/
+  app/
+    layout.tsx          → root layout (font, global wrappers)
+    page.tsx            → landing page utama (kalau pakai App Router default)
+    (marketing)/        → folder untuk halaman marketing
+      page.tsx          → landing page (hero, CTA, dsb.)
+      features/page.tsx → penjelasan fitur Arctis
+      examples/page.tsx → contoh UI
+      about/page.tsx    → tentang Arctis
+    docs/
+      page.tsx          → halaman index dokumentasi
+      components/
+        button/page.tsx → dokumentasi Arctis Button
+        hero/page.tsx   → dokumentasi ArctisHero
+      layout.tsx        → layout khusus docs (sidebar, content area)
+    not-found.tsx       → halaman 404
+    robots.ts           → SEO robots
+    sitemap.ts          → Sitemap
+
+  components/
+    ui/                 → component khusus website (BUKAN bagian dari library)
+      Navbar.tsx
+      Sidebar.tsx
+      Footer.tsx
+      CodeBlock.tsx
+      Preview.tsx
+    sections/           → bagian-bagian landing (hero section, features section)
+      HeroSection.tsx
+      FeaturesSection.tsx
+      ShowcaseSection.tsx
+    layouts/
+      MarketingLayout.tsx
+      DocsLayout.tsx
+
+  styles/
+    globals.css         → global styles + tailwind base
+
+  public/
+    fonts/
+      GeistVF.woff
+      GeistMonoVF.woff
+    images, social preview, logo, dll.
+
+Import yang penting di apps/web:
+--------------------------------
+
+1) Menggunakan komponen dari library ARCTIS:
+
+  import { Button, ArctisHero } from "@arctis/ui";
+
+2) Menggunakan component khusus web (navbar, layout, dsb.):
+
+  import { Navbar } from "@/components/ui/Navbar";
+  import { HeroSection } from "@/components/sections/HeroSection";
+
+3) Import font lokal (di app/layout.tsx):
+
+  import localFont from "next/font/local";
+
+  const geistSans = localFont({
+    src: "../public/fonts/GeistVF.woff",
+    variable: "--font-geist-sans",
+    display: "swap",
+  });
+
+4) Global CSS:
+
+  import "../styles/globals.css";
+
+======================================================================
+3. PACKAGES/UI – ARCTIS UI LIBRARY
+======================================================================
+
+Path: packages/ui
+
+Fungsi:
+- Library utama Arctis (semua komponen reusable).
+- Bisa di-publish nanti sebagai package npm.
+- Tidak tahu apa-apa tentang Next.js, hanya React + className.
+- Tempat semua komponen final yang dipakai developer:
+
+  import { Button, ArctisHero } from "@arctis/ui";
+
+Package.json (intinya):
+- "name": "@arctis/ui"
+- "exports": {
+    ".": "./src/index.ts"
+  }
+- "dependencies": {
+    "react": "...",
+    "react-dom": "..."
+  }
+- "devDependencies": {
+    "@arctis/eslint-config": "workspace:*",
+    "@arctis/typescript-config": "workspace:*",
+    "typescript": "...",
+    "eslint": "..."
+  }
+
+Struktur src:
+
+packages/ui/
+  src/
+    index.ts            → PUBLIC API (semua yang boleh di-import user)
+    components/
+      index.ts          → barrel export untuk semua komponen
+      ArctisHero.tsx
+      Button.tsx
+      Card.tsx
+      ...
+    tokens/
+      colors.ts         → definisi warna Arctis (brand, surface, text)
+      radii.ts          → border radius
+      shadows.ts        → shadow system
+      spacing.ts        → optional, jarak, padding
+    utils/
+      cn.ts             → function helper untuk join className (clsx/tw-merge style)
+      other-utils.ts    → optional
+
+Import pattern:
+---------------
+
+PUBLIC:
+- Semua yang ingin dipakai user, di-export dari src/index.ts:
+
+  // src/index.ts
+  export * from "./components";
+  export * from "./tokens";
+
+  // src/components/index.ts
+  export * from "./ArctisHero";
+  export * from "./Button";
+  export * from "./Card";
+
+Di apps/web (dan project lain), cukup:
+
+  import { Button, ArctisHero } from "@arctis/ui";
+
+PRIVATE:
+- File di dalam components/* yang tidak di-export dari src/components/index.ts
+  dianggap internal dan tidak boleh diimport user.
+
+Kenapa dipisah components/tokens/utils?
+---------------------------------------
+
+- components → API utama yang user lihat (ArctisHero, Button, Card, dsb.)
+- tokens    → konsistensi desain: warna, radius, shadow, dsb.
+              memudahkan ganti tema secara global.
+- utils     → helper kecil untuk internal library (supaya komponen lebih bersih).
+
+======================================================================
+4. PACKAGES/ESLINT-CONFIG
+======================================================================
+
+Path: packages/eslint-config
+
+Fungsi:
+- Menyimpan konfigurasi ESLint shared untuk semua project (web, ui, dll).
+- Supaya tidak perlu copy-paste config.
+
+File penting:
+- base.js         → aturan umum JS/TS (turbo, prettier, dll.)
+- next.js         → extend base + aturan khusus Next.js
+- react-internal.js → extend base + aturan untuk React library (packages/ui)
+
+Pemakaian:
+- Di apps/web/.eslintrc → extend "@arctis/eslint-config/next-js"
+- Di packages/ui/.eslintrc → extend "@arctis/eslint-config/react-internal"
+
+======================================================================
+5. PACKAGES/TYPESCRIPT-CONFIG
+======================================================================
+
+Path: packages/typescript-config
+
+Fungsi:
+- Menyimpan TSConfig shared.
+- Supaya semua project punya rules TypeScript yang sama, tapi bisa override.
+
+File penting:
+- base.json       → opsi umum TypeScript (target, moduleResolution, strict, dsb.)
+- nextjs.json     → extend base untuk Next.js environment
+- react-library.json → extend base untuk library React biasa
+
+Pemakaian:
+- apps/web/tsconfig.json:
+    "extends": "@arctis/typescript-config/nextjs.json"
+
+- packages/ui/tsconfig.json:
+    "extends": "@arctis/typescript-config/react-library.json"
+
+======================================================================
+6. CARA KERJA MONOREPO (SINGKAT)
+======================================================================
+
+- Semua package/app berada di satu repo (ARCTIS).
+- pnpm-workspace + Turborepo mengurus linking & pipeline.
+
+Workflow harian:
+
+1) Running dev server:
+   - di root:
+     pnpm dev
+   - ini akan menjalankan:
+     - apps/web → next dev
+     - (opsional) packages/ui dev/build jika di-setup
+
+2) Development UI:
+   - bikin komponen baru di:
+     packages/ui/src/components/NamaComponent.tsx
+   - export di:
+     packages/ui/src/components/index.ts
+   - muncul di app via:
+     import { NamaComponent } from "@arctis/ui";
+
+3) Dokumentasi & landing:
+   - bikin halaman di:
+     apps/web/app/(marketing)/...
+     apps/web/app/docs/...
+
+Dengan struktur ini:
+- Arctis UI bisa di-publish sebagai library,
+- Arctis Web bisa jadi homepage dan docs resmi,
+- Kamu bisa maintain keduanya dengan rapi tanpa tabrakan.

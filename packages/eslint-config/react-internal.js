@@ -7,33 +7,37 @@ import globals from "globals";
 import { config as baseConfig } from "./base.js";
 
 /**
- * A custom ESLint configuration for libraries that use React.
- *
- * @type {import("eslint").Linter.Config[]} */
+ * ESLint configuration for React component libraries like ARCTIS UI.
+ */
 export const config = [
   ...baseConfig,
+
   js.configs.recommended,
-  eslintConfigPrettier,
   ...tseslint.configs.recommended,
+
+  // React recommended
   pluginReact.configs.flat.recommended,
+
+  // Browser + worker globals
   {
     languageOptions: {
-      ...pluginReact.configs.flat.recommended.languageOptions,
       globals: {
-        ...globals.serviceworker,
         ...globals.browser,
-      },
-    },
+        ...globals.serviceworker
+      }
+    }
   },
+
+  // React hooks
   {
-    plugins: {
-      "react-hooks": pluginReactHooks,
-    },
-    settings: { react: { version: "detect" } },
+    plugins: { "react-hooks": pluginReactHooks },
     rules: {
       ...pluginReactHooks.configs.recommended.rules,
-      // React scope no longer necessary with new JSX transform.
-      "react/react-in-jsx-scope": "off",
+      "react/react-in-jsx-scope": "off"
     },
+    settings: { react: { version: "detect" } }
   },
+
+  // Prettier cleanup
+  eslintConfigPrettier
 ];

@@ -1,6 +1,12 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+  "extends": "@arctis/typescript-config/nextjs.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "paths": {
+      "@/*": ["./*"],
+      "@arctis/ui": ["../../packages/ui/src/index.ts"]
+    },
     "plugins": [
       {
         "name": "next"
@@ -8,13 +14,11 @@
     ]
   },
   "include": [
-    "**/*.ts",
-    "**/*.tsx",
     "next-env.d.ts",
-    "next.config.js",
+    "app/**/*",
+    "features/**/*",
+    "shared/**/*",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
