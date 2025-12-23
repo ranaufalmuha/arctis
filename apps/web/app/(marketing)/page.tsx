@@ -1,3 +1,35 @@
+import { Button } from "@/shared/components/ui/Button";
+import { FlairCursorFollower } from "@arctis/ui";
+import Link from "next/link";
+
 export default function Home() {
-  return <div className="">test</div>;
+  return (
+    <div className="w-full h-screen flex flex-col items-center justify-center overflow-hidden relative">
+      <div className="px-4 flex-col flex items-center text-center max-w-4xl gap-2 md:gap-4 lg:gap-6">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl duration-300">
+          The Foundation for your Design System
+        </h1>
+        <p className="max-md:text-sm lg:text-lg duration-300">
+          A set of beautifully designed components that you can customize,
+          extend, and build on. Start here then make it your own. Open Source.
+          Open Code.
+        </p>
+
+        {/* actions  */}
+        <div className="mt-3 hover:scale-110 duration-300">
+          <Link href={"/docs"}>
+            <Button>View Components</Button>
+          </Link>
+          {/* <Link
+            href={"/docs"}
+            className="bg-accent text-background py-3 px-6 rounded-lg max-md:text-sm lg:text-lg duration-300  "
+          >
+            View Components
+          </Link> */}
+        </div>
+      </div>
+
+      <FlairCursorFollower />
+    </div>
+  );
 }
