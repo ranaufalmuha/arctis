@@ -18,3 +18,4 @@
 
 
 export * from "./CodeBlock";
+export * from "./FlairCursorFollower";
