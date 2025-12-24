@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { Header } from "./Header";
-import { Footer } from "../../../../shared/components/layouts/Footer";
+import { Footer } from "../../../../app/(marketing)/_components/layout/Footer";
 import { Sidebar } from "./Sidebar";
 import { DocItem } from "../../interfaces/doc";
 

@@ -1,7 +1,17 @@
-"use client";
+import React from "react";
+import { CodeBlock, FlairCursorFollower } from "@arctis/ui";
+import DocsContent from "@/features/doc/components/Content";
+
+export default function FlairCursorFollowerPage() {
+  const install = `pnpm add gsap`;
+  const usage = `import FlairCursorFollower from './FlairCursorFollower'
+ 
+// usage
+<FlairCursorFollower />`;
+  const code = `"use client";
 
 import React, { useEffect, useMemo, useRef } from "react";
-import { gsap } from "./../lib/gsap";
+import { gsap } from "gsap";
 
 export const FlairCursorFollower: React.FC = () => {
   const indexRef = useRef(0);
@@ -157,3 +167,34 @@ export const FlairCursorFollower: React.FC = () => {
     <FlairCursorFollower />
 
  */
+
+`;
+
+  return (
+    <div className="flex flex-col gap-8">
+      <h1 className="text-3xl">Flair Cursor Follower</h1>
+
+      <DocsContent>
+        <div className="flex flex-col gap-4 overflow-hidden relative">
+          <p>Hover your Cursor</p>
+          <FlairCursorFollower />
+        </div>
+      </DocsContent>
+
+      <div className="flex flex-col gap-4">
+        <h2 className="text-xl">Installation</h2>
+        <CodeBlock code={install} lang="bash" />
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <h2 className="text-xl">Usage</h2>
+        <CodeBlock code={usage} showLineNumbers />
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <h2 className="text-xl">Code</h2>
+        <CodeBlock code={code} showLineNumbers />
+      </div>
+    </div>
+  );
+}
