@@ -1,20 +1,11 @@
-// apps/web/app/(marketing)/layout.tsx
 import type { ReactNode } from "react";
-import { Header } from "@/shared/components/layout/Header";
-import { Footer } from "@/shared/components/layout/Footer";
 import "@/shared/styles/globals.css";
 
-export default function MarketingSegmentLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html className="flex min-h-screen flex-col bg-black text-white">
+    <html className="flex min-h-screen flex-col">
       <body>
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <div className="flex-1">{children}</div>
       </body>
     </html>
   );

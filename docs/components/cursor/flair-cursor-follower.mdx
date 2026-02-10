@@ -4,9 +4,10 @@ description: Interactive cursor-driven flair animation that follows pointer move
 ---
 
 import { PreviewTabs } from "/snippets/preview-tabs.mdx";
+import { vars } from "/snippets/custom-variables.mdx";
 
 <PreviewTabs
-  iframe="https://arctis.ranaufalmuha.com/"
+  iframe={vars.cursor+"flair-cursor-follower"}
   install={`gsap`}
   usage={`"use client";
 
@@ -137,6 +138,7 @@ if (nodesRef.current.length === 0) return;
 }, []);
 
 return (
+
 <div
       className="pointer-events-none fixed inset-0 z-50 overflow-hidden"
       aria-hidden="true"

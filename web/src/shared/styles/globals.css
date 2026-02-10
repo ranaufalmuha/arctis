@@ -4,6 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --accent: #ffeb50;
+  --label: #00000069;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -11,6 +12,7 @@
     --background: #0a0a0a;
     --foreground: #ededed;
     --accent: #ffeb50;
+    --label: #ffffff69;
   }
 }
 
@@ -18,6 +20,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
+  --color-label: var(--label);
 }
 
 html,
