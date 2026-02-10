@@ -1,0 +1,159 @@
+"use client";
+
+import React, { useEffect, useMemo, useRef } from "react";
+import { gsap } from "@/shared/lib/gsap";
+
+export const FlairCursorFollower: React.FC = () => {
+  const indexRef = useRef(0);
+  const nodesRef = useRef<HTMLImageElement[]>([]);
+
+  // ✅ gate distance
+  const lastSpawnPosRef = useRef<{ x: number; y: number } | null>(null);
+  const gapRef = useRef(100); // 👈 atur: 80–140 biasanya enak
+
+  const imgList = useMemo(
+    () => [
+      "https://assets.codepen.io/16327/Revised+Flair.png",
+      "https://assets.codepen.io/16327/Revised+Flair-1.png",
+      "https://assets.codepen.io/16327/Revised+Flair-2.png",
+      "https://assets.codepen.io/16327/Revised+Flair-3.png",
+      "https://assets.codepen.io/16327/Revised+Flair-4.png",
+      "https://assets.codepen.io/16327/Revised+Flair-5.png",
+      "https://assets.codepen.io/16327/Revised+Flair-6.png",
+      "https://assets.codepen.io/16327/Revised+Flair-7.png",
+      "https://assets.codepen.io/16327/Revised+Flair-8.png",
+      "https://assets.codepen.io/16327/Revised+Flair.png",
+      "https://assets.codepen.io/16327/Revised+Flair-1.png",
+      "https://assets.codepen.io/16327/Revised+Flair-2.png",
+      "https://assets.codepen.io/16327/Revised+Flair-3.png",
+      "https://assets.codepen.io/16327/Revised+Flair-4.png",
+      "https://assets.codepen.io/16327/Revised+Flair-5.png",
+      "https://assets.codepen.io/16327/Revised+Flair-6.png",
+      "https://assets.codepen.io/16327/Revised+Flair-7.png",
+      "https://assets.codepen.io/16327/Revised+Flair-8.png",
+    ],
+    [],
+  );
+
+  useEffect(() => {
+    nodesRef.current = Array.from(
+      document.querySelectorAll<HTMLImageElement>(".flair"),
+    );
+    if (nodesRef.current.length === 0) return;
+
+    gsap.set(nodesRef.current, {
+      opacity: 0,
+      xPercent: -50,
+      yPercent: -50,
+    });
+
+    const spawn = (x: number, y: number) => {
+      const nodes = nodesRef.current;
+      if (nodes.length === 0) return;
+
+      const i = indexRef.current % nodes.length;
+      const img = nodes[i];
+      if (!img) return;
+      indexRef.current += 1;
+
+      gsap.killTweensOf(img);
+
+      gsap.set(img, {
+        opacity: 1,
+        left: x,
+        top: y,
+        rotation: 0,
+        scale: 1,
+        y: 0,
+        position: "fixed",
+      });
+
+      gsap
+        .timeline()
+        .fromTo(
+          img,
+          { scale: 0.6 },
+          { scale: 1, duration: 0.15, ease: "power2.out" },
+        )
+        .to(img, { rotation: gsap.utils.random(-360, 360), duration: 0.6 }, "<")
+        .to(
+          img,
+          { y: window.innerHeight * 1.2, duration: 1, ease: "power2.in" },
+          0,
+        )
+        .to(img, { opacity: 0, duration: 0.4 }, 0.6);
+    };
+
+    const onMove = (e: MouseEvent) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      // init pos pertama kali
+      if (!lastSpawnPosRef.current) {
+        lastSpawnPosRef.current = { x, y };
+        return;
+      }
+
+      const dx = x - lastSpawnPosRef.current.x;
+      const dy = y - lastSpawnPosRef.current.y;
+      const dist = Math.hypot(dx, dy);
+
+      // ✅ hanya spawn kalau gerak sudah cukup jauh
+      if (dist < gapRef.current) return;
+
+      spawn(x, y);
+      lastSpawnPosRef.current = { x, y };
+    };
+
+    window.addEventListener("mousemove", onMove);
+
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      for (const el of nodesRef.current) gsap.killTweensOf(el);
+    };
+  }, []);
+
+  return (
+    <div
+      className="pointer-events-none fixed inset-0 z-50 overflow-hidden"
+      aria-hidden="true"
+    >
+      {imgList.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt=""
+          className="flair"
+          style={{
+            position: "fixed",
+            opacity: 0,
+            width: "50px",
+            left: 0,
+            top: 0,
+            pointerEvents: "none",
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+/**
+  Arctis UI Component — <FlairCursorFollower>
+ 
+  Created with 💛 by Ranaufal Muha
+  https://ranaufalmuha.com
+ 
+  Hi! Thank you for using this component.
+  You’re free to copy, modify, or use it in any project you like.
+ 
+  If possible, please keep this small header as appreciation.
+  It helps others know where the component came from ❤️
+ 
+  Usage:
+    import { FlairCursorFollower } from "@arctis/ui";
+ 
+    // usage
+    <FlairCursorFollower />
+
+ */
