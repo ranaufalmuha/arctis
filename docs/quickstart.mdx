@@ -1,80 +1,178 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: Quickstart
+description: "Get your first Arctis UI component running in under 5 minutes."
 ---
 
-## Get started in three steps
+## Prerequisites
 
-Get your documentation site running locally and make your first customization.
+Before using any Arctis UI component, make sure your project is set up with the following:
 
-### Step 1: Set up your local environment
+<Steps>
+  <Step title="React + Next.js">
+    Arctis UI components are written for React 18+ and are fully compatible with the **Next.js App Router**.
+
+    <CodeGroup>
+      <CodeBlock filename="pnpm" language="bash" >
+      pnpm create next-app@latest my-app --typescript --tailwind
+      </CodeBlock>
+      <CodeBlock filename="npm" language="bash" >
+      npx create-next-app@latest my-app --typescript --tailwind
+      </CodeBlock>
+    </CodeGroup>
+
+  </Step>
+
+  <Step title="Tailwind CSS">
+    All components use Tailwind for styling. If you didn't set it up via the Next.js wizard, install it manually:
+
+    <CodeGroup>
+      <CodeBlock filename="pnpm" language="bash" >
+      pnpm add -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p
+      </CodeBlock>
+      <CodeBlock filename="npm" language="bash" >
+      npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p
+      </CodeBlock>
+    </CodeGroup>
+
+  </Step>
+
+  <Step title="TypeScript">
+    Arctis UI is written in TypeScript. It works with plain JavaScript too, but TypeScript is recommended for the best experience.
+  </Step>
+</Steps>
+
+---
+
+## Using Your First Component
+
+Let's add the **Flair Cursor Follower** — a GSAP-powered cursor animation — to your project.
+
+<Steps>
+  <Step title="Install dependencies">
+    Some components require additional packages. Check the component page for its specific dependency.
+
+    For the Flair Cursor Follower, install GSAP:
+
+    <CodeGroup>
+      <CodeBlock filename="pnpm" language="bash" >
+      pnpm add gsap
+      </CodeBlock>
+      <CodeBlock filename="npm" language="bash" >
+      npm install gsap
+      </CodeBlock>
+      <CodeBlock filename="yarn" language="bash" >
+      yarn add gsap
+      </CodeBlock>
+      <CodeBlock filename="bun" language="bash" >
+      bun add gsap
+      </CodeBlock>
+    </CodeGroup>
+
+  </Step>
+
+  <Step title="Copy the component">
+    Go to the component page, click the **Code** tab, and copy the full component source. Paste it into your project — for example at:
+
+    ```
+    src/components/ui/flair-cursor-follower.tsx
+    ```
+
+    <Note>
+      Every Arctis UI component is self-contained. You own the file the moment you paste it.
+    </Note>
+
+  </Step>
+
+  <Step title="Import and use it">
+    Add the component to any page or layout. For global cursor effects, place it in your root layout:
+
+```tsx
+import { FlairCursorFollower } from "@/components/ui/flair-cursor-follower";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <FlairCursorFollower />
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+  </Step>
+
+  <Step title="Run your app">
+    Start your dev server and move your cursor around — you should see the flair animation in action!
+
+    <CodeGroup>
+      <CodeBlock filename="pnpm" language="bash" >
+      pnpm dev
+      </CodeBlock>
+      <CodeBlock filename="npm" language="bash"  >
+      npm run dev
+      </CodeBlock>
+    </CodeGroup>
+
+  </Step>
+</Steps>
+
+---
+
+## Folder Structure (Recommended)
+
+We recommend keeping Arctis UI components in a dedicated folder so they're easy to find and update:
+
+```
+src/
+└── components/
+    └── ui/               ← Arctis UI components live here
+        ├── flair-cursor-follower.tsx
+        ├── magnetic-button.tsx
+        └── ...
+```
+
+---
+
+## Tips & Best Practices
 
 <AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
+  <Accordion title="Always check component dependencies">
+    Each component page lists its required packages under the **Installation** tab. Some components need GSAP, some need Three.js, and some have zero external dependencies.
   </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
+
+<Accordion title="Use 'use client' for animation components">
+  All animation and interactive components require the `"use client"` directive
+  at the top of the file since they use browser APIs like `window`,
+  `addEventListener`, and refs. This is already included in every component —
+  don't remove it.
+</Accordion>
+
+<Accordion title="Customize freely">
+  Every component is designed to be modified. Colors, sizes, timing, easing —
+  it's all just code in your project. No configuration files, no theme tokens to
+  look up.
+</Accordion>
+
+  <Accordion title="Keep the author header (please 🙏)">
+    Each component file includes a small comment header crediting the author. You're not required to keep it, but it helps others trace where the component came from. It means a lot!
   </Accordion>
 </AccordionGroup>
 
-### Step 2: Deploy your changes
+---
 
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
-
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
-
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 3: Go live
-
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
-
-## Next steps
-
-Now that you have your docs running, explore these key features:
+## Need Help?
 
 <CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
+  <Card title="Browse Components" icon="grid-2" href="/components">
+    Explore the full component library and find what you need.
+  </Card>
+  <Card title="GitHub" icon="github" href="https://github.com/ranaufalmuha">
+    Found a bug or want to contribute? Open an issue or PR on GitHub.
+  </Card>
 </CardGroup>
-
-<Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
-</Note>

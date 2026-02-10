@@ -1,9 +1,5 @@
 export const PreviewTabs = ({ iframe, install, usage, code }) => (
   <>
-   <p style={{ color: "#F59E0B" }}>
-      Created with 💛 by{" "}
-      <a href="https://ranaufalmuha.com" target="_blank">Ranaufal Muha</a>
-    </p>
   <Tabs>
     <Tab title="Preview">
      <div
@@ -52,5 +48,11 @@ export const PreviewTabs = ({ iframe, install, usage, code }) => (
     </Tab>
 
   </Tabs>
+
+<h2> Built by</h2>
+<Card title="Ranaufal Muha" icon="heart" href="https://ranaufalmuha.com">
+  Arctis UI is designed and maintained with 💛 by Ranaufal Muha. All components
+  are free to use, modify, and ship in any project — personal or commercial.
+</Card>
   </>
 );
