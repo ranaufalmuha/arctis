@@ -1,1 +1,1 @@
-export const LINK_TO_DOCS = "http://localhost:3001/";
+export const LINK_TO_DOCS = "https://arctis.mintlify.app/";
