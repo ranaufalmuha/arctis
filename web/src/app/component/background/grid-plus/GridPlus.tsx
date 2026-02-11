@@ -1,15 +1,14 @@
-// components/CalmGridPlus.tsx
 "use client";
 
 import { useId, useMemo } from "react";
 
 export default function GridPlus({
-  grid = 50, // jarak antar garis (px)
-  plusGap = 200, // jarak antar tanda plus (px)
-  plusSize = 6, // panjang satu sisi tanda plus (px)
-  stroke = "rgba(255,255,255,0.25)", // warna grid
-  plusStroke = "rgba(255,255,255,0.6)", // warna tanda plus
-  bg = "#171717", // warna dasar (abu2 lembut)
+  grid = 50,
+  plusGap = 200,
+  plusSize = 6,
+  stroke = "rgba(255,255,255,0.25)",
+  plusStroke = "rgba(255,255,255,0.6)",
+  bg = "#171717",
 }: {
   grid?: number;
   plusGap?: number;

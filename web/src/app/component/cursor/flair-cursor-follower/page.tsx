@@ -1,4 +1,4 @@
-import { FlairCursorFollower } from "@/demo/FlairCursorFollower";
+import { FlairCursorFollower } from "./FlairCursorFollower";
 
 export default function FlairCursorFlowerPage() {
   return (

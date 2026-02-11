@@ -21,9 +21,21 @@
             ]
           },
           {
+            "group": "Button",
+            "pages": [
+              "components/button/sweep-button"
+            ]
+          },
+          {
             "group": "Cursor",
             "pages": [
               "components/cursor/flair-cursor-follower"
+            ]
+          },
+          {
+            "group": "Background",
+            "pages": [
+              "components/background/grid-plus"
             ]
           }
         ]

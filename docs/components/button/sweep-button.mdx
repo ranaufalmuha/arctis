@@ -1,0 +1,120 @@
+---
+title: Sweep Button
+description: Interactive cursor-driven flair animation that follows pointer movement with smooth GSAP interpolation.
+---
+
+import { PreviewTabs } from "/snippets/preview-tabs.mdx";
+import { vars } from "/snippets/custom-variables.mdx";
+
+<PreviewTabs
+  iframe={vars.button + "sweep-button"}
+  install={`clsx`}
+  usage={`import SweepButton from "./SweepButton";
+
+export default function SweepButtonPage() {
+  return (
+    <div>
+      <SweepButton>Launch Vault</SweepButton>
+    </div>
+  );
+}
+`}
+  code={`"use client";
+
+import clsx from "clsx";
+import React, { forwardRef } from "react";
+
+type Variant = "color" | "transparent";
+type Size = "sm" | "md" | "lg";
+
+type SweepButtonProps = {
+variant?: Variant;
+size?: Size;
+loading?: boolean;
+leftIcon?: React.ReactNode;
+rightIcon?: React.ReactNode;
+className?: string;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+const sizeMap = {
+sm: "px-4 py-2 text-sm",
+md: "px-6 py-3 text-base",
+lg: "px-8 py-4 text-lg",
+};
+
+const variantMap = {
+color: \`\
+ bg-[#F89D00]
+hover:brightness-110
+\`,
+transparent: \`\
+ bg-transparent border border-border
+hover:bg-white/5
+\`,
+};
+
+const SweepButton = forwardRef<HTMLButtonElement, SweepButtonProps>(
+function SweepButton(
+{
+children,
+variant = "color",
+size = "md",
+loading = false,
+disabled,
+leftIcon,
+rightIcon,
+className,
+...buttonProps
+},
+ref,
+) {
+const baseClass = clsx(
+"relative overflow-hidden group inline-flex items-center justify-center gap-2",
+"font-medium rounded-lg transition-all duration-300 ease-out",
+"focus:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+"cursor-pointer",
+sizeMap[size],
+variantMap[variant],
+(disabled || loading) && "opacity-50 pointer-events-none",
+className,
+);
+
+    return (
+      <button
+        ref={ref}
+        disabled={disabled || loading}
+        className={baseClass}
+        {...buttonProps}
+      >
+        {/* Sweep Light */}
+        <span
+          className="
+          absolute right-0 w-10 h-full top-0
+          bg-white opacity-10 -skew-x-12
+          translate-x-12
+          transition-transform duration-700
+          group-hover:-translate-x-36
+        "
+        />
+
+        {/* Content */}
+        <span className="relative flex items-center gap-2">
+          {loading ? (
+            <span className="animate-spin w-4 h-4 border-2 border-current border-t-transparent rounded-full" />
+          ) : (
+            <>
+              {leftIcon}
+              {children}
+              {rightIcon}
+            </>
+          )}
+        </span>
+      </button>
+    );
+
+},
+);
+
+export default SweepButton;
+`}
+/>

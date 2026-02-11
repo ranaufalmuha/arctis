@@ -20,6 +20,8 @@ export const PreviewTabs = ({ iframe, install, usage, code }) => (
 </div>
     </Tab>
     <Tab title="Code">
+      {install && (
+        <>
       <h3 >Installation</h3>
       <CodeGroup> 
       <CodeBlock filename="pnpm" language="bash">
@@ -35,6 +37,8 @@ export const PreviewTabs = ({ iframe, install, usage, code }) => (
         bun add {install}
       </CodeBlock>
       </CodeGroup>
+        </>
+      )}
 
       <h3 >Usage</h3>
       <CodeBlock filename="typescript" language="tsx">

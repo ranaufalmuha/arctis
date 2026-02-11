@@ -1,4 +1,4 @@
-import { FlairCursorFollower } from "@/demo/FlairCursorFollower";
+import { FlairCursorFollower } from "@/app/component/cursor/flair-cursor-follower/FlairCursorFollower";
 import { Button } from "@/shared/components/ui/Button";
 import { LINK_TO_DOCS } from "@/shared/constants/links";
 import Link from "next/link";
