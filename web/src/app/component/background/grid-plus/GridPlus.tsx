@@ -6,9 +6,9 @@ export default function GridPlus({
   grid = 50,
   plusGap = 200,
   plusSize = 6,
-  stroke = "rgba(255,255,255,0.25)",
-  plusStroke = "rgba(255,255,255,0.6)",
-  bg = "#171717",
+  stroke = "rgba(255,255,255,0.15)",
+  plusStroke = "rgba(255,255,255,0.2)",
+  bg = "#0a0a0a",
 }: {
   grid?: number;
   plusGap?: number;

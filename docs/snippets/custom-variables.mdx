@@ -2,9 +2,9 @@ https://arctis.ranaufalmuha.com
 http://localhost:3000
 
 export const vars = {
-  host: "https://arctis.ranaufalmuha.com",
-  get cursor() {
-    return this.host + "/component/cursor/";
+  host: "http://localhost:3000",
+  get background() {
+    return this.host + "/component/background/";
   },
   get button() {
     return this.host + "/component/button/";
@@ -12,7 +12,10 @@ export const vars = {
   get card() {
     return this.host + "/component/card/";
   },
-  get background() {
-    return this.host + "/component/background/";
+  get cursor() {
+    return this.host + "/component/cursor/";
+  },
+  get toaster() {
+    return this.host + "/component/toaster/";
   },
 };

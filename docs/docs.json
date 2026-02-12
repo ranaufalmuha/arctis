@@ -21,6 +21,12 @@
             ]
           },
           {
+            "group": "Background",
+            "pages": [
+              "components/background/grid-plus"
+            ]
+          },
+          {
             "group": "Button",
             "pages": [
               "components/button/sweep-button"
@@ -33,9 +39,9 @@
             ]
           },
           {
-            "group": "Background",
+            "group": "Toaster",
             "pages": [
-              "components/background/grid-plus"
+              "components/toaster/glass-toaster"
             ]
           }
         ]
