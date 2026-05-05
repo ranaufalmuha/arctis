@@ -23,7 +23,7 @@ export function CodeBlock({
   };
 
   return (
-    <div className="relative overflow-hidden rounded-lg border border-white/10 bg-[#050509]">
+    <div className="relative overflow-hidden border border-[var(--color-border)] bg-[var(--color-panel)]">
       {/* Header */}
       <div className="flex items-center justify-between border-b border-white/10 px-3 py-2 text-[11px] text-white/50">
         <div className="flex items-center gap-2">
@@ -32,7 +32,7 @@ export function CodeBlock({
 
         <button
           onClick={copy}
-          className="rounded-lg border border-white/20 px-2 py-0.5 text-[10px] hover:border-white/40"
+          className="border border-[var(--color-border)] px-2 py-0.5 text-[10px] hover:border-[var(--color-border-strong)]"
         >
           {copied ? "Copied" : "Copy"}
         </button>

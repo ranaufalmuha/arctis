@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 2184 506" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-999.958515,-1782.473542)">
+        <g transform="matrix(4.166667,0,0,4.166667,0,0)">
+            <g transform="matrix(0.122322,0,0,0.122322,239.990044,549.340297)">
+                <path d="M0,-987.22C0.038,-812.707 0.077,-638.195 0.115,-463.682L339.127,-463.682L339.127,-383.618L0.022,-383.618C0.416,-324.088 0.811,-264.558 1.205,-205.028C30.668,-167.778 162.677,-9.134 370.558,-1.594C592.152,6.443 736.573,-163.143 764.046,-196.702L764.046,-993.663L382.63,-749.918C255.087,-829.019 127.543,-908.119 0,-987.22" style="fill:rgb(255,235,80);fill-rule:nonzero;"/>
+            </g>
+        </g>
+        <g transform="matrix(4.166667,0,0,4.166667,0,0)">
+            <g transform="matrix(0.24,0,0,0.24,14.88,53.246393)">
+                <g transform="matrix(600,0,0,600,3148.714844,2039.851562)">
+                </g>
+                <text x="1441px" y="2039.852px" style="font-family:'Geneva', sans-serif;font-size:600px;fill:white;">Arctis</text>
+            </g>
+        </g>
+    </g>
+</svg>

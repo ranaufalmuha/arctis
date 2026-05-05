@@ -15,8 +15,23 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Arctis",
-  description: "Beautiful React Components",
+  title: {
+    default: "ARCTIS — Open-Source Skill Registry for AI Coding Agents",
+    template: "%s | ARCTIS",
+  },
+  description:
+    "ARCTIS is an open-source skill registry for AI coding agents. Browse and install reusable SKILL.md packages for Claude Code, OpenCode, and Codex.",
+  keywords: [
+    "AI coding agent",
+    "skill registry",
+    "SKILL.md",
+    "Claude Code",
+    "OpenCode",
+    "Codex",
+    "frontend skills",
+    "design system",
+    "open source",
+  ],
 };
 
 export default function RootLayout({
@@ -25,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>

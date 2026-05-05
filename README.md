@@ -1,6 +1,6 @@
-# Turborepo starter
+# Arctis
 
-This Turborepo starter is maintained by the Turborepo core team.
+A modern Next.js application built with Turborepo monorepo architecture.
 
 ## Using this example
 
@@ -16,8 +16,12 @@ This Turborepo includes the following packages/apps:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
+- `web`: a [Next.js 16](https://nextjs.org/) app featuring:
+  - **Marketing Site** - Landing page with responsive layout (Header/Footer)
+  - **Documentation System** - Full docs platform with sidebar navigation, content rendering, and code blocks
+  - **UI Components** - Reusable components (Button, Hero, Code Block, Flair Cursor Follower)
+  - **Background Effects** - Noise and Stars background animations
+  - **SEO** - Automatic sitemap and robots.txt generation
 - `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo

@@ -31,12 +31,12 @@ export async function getDocsRoutes(): Promise<DocItem[]> {
 
         // Load file untuk check meta
         const modulePath = "../" + file; // relative import
-        let meta: any = null;
+        let meta: { label?: string; group?: string } | null = null;
 
         try {
-            const mod = await import(modulePath);
+            const mod = (await import(modulePath)) as { meta?: { label?: string; group?: string } };
             meta = mod.meta || null;
-        } catch (err) {
+        } catch {
             // Ignore (server can't import sometimes)
         }
 

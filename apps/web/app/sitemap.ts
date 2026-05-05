@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getAllSkillSlugs } from "@/features/skills/utils/data";
 
 const rawBaseUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
@@ -10,20 +11,25 @@ const baseUrl = rawBaseUrl.endsWith("/")
   ? rawBaseUrl.slice(0, -1)
   : rawBaseUrl;
 
-const routes = [
-  "/",
-  "/docs",
-  "/docs/backgrounds/noise",
-  "/docs/backgrounds/stars",
-  "/docs/components/button",
-  "/docs/components/code-block",
-  "/docs/components/hero",
-];
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return routes.map((route) => ({
+  const skillSlugs = getAllSkillSlugs();
+
+  const staticRoutes = [
+    "/",
+    "/skills",
+    "/docs",
+    "/docs/backgrounds/noise",
+    "/docs/backgrounds/stars",
+    "/docs/components/button",
+    "/docs/components/code-block",
+    "/docs/components/hero",
+  ];
+
+  const skillRoutes = skillSlugs.map((slug) => `/skills/${slug}`);
+
+  return [...staticRoutes, ...skillRoutes].map((route) => ({
     url: new URL(route, baseUrl).toString(),
     lastModified,
   }));

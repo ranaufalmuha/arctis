@@ -6,8 +6,8 @@ type DocsContentProps = {
 
 export default function DocsContent({ children }: DocsContentProps) {
   return (
-    <section className="border border-white/20 rounded-lg overflow-hidden w-full aspect-5/3 flex items-center justify-center">
-      {children ?? <p className="text-sm text-white/40">Component preview</p>}
+    <section className="border border-[var(--color-border)] bg-[var(--color-panel)] overflow-hidden w-full aspect-5/3 flex items-center justify-center">
+      {children ?? <p className="font-mono text-sm text-[var(--color-muted)]">Component preview</p>}
     </section>
   );
 }

@@ -2,45 +2,110 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import clsx from "clsx";
-import { DocItem } from "../../interfaces/doc";
+import { DOCS_NAV } from "../../data/nav";
+import type { DocNavGroup } from "../../data/nav";
 
-type Props = {
-  routes: DocItem[];
-};
-
-export function Sidebar({ routes }: Props) {
+export function Sidebar() {
   const pathname = usePathname();
+  const [collapsed, setCollapsed] = useState<Set<string>>(() => {
+    const c = new Set<string>();
+    DOCS_NAV.forEach((g) => {
+      if (g.defaultOpen === false) c.add(g.label);
+    });
+    return c;
+  });
 
-  // group by `group` field
-  const grouped = routes.reduce<Record<string, DocItem[]>>((acc, route) => {
-    const group = route.group ?? "General";
-    if (!acc[group]) acc[group] = [];
-    acc[group].push(route);
-    return acc;
-  }, {});
+  const toggle = (label: string) => {
+    setCollapsed((prev) => {
+      const next = new Set(prev);
+      if (next.has(label)) next.delete(label);
+      else next.add(label);
+      return next;
+    });
+  };
 
   return (
-    <aside className="hidden w-64 shrink-0 border-r border-white/10 bg-black/40 p-4 text-sm text-white/70 md:block capitalize">
-      {Object.entries(grouped).map(([groupLabel, items]) => (
-        <div key={groupLabel} className="mb-6">
-          <div className="mb-2 tracking-wide text-white/40">{groupLabel}</div>
-          <nav className="flex flex-col gap-1">
-            {items.map((item) => (
+    <>
+      {DOCS_NAV.map((group) => (
+        <SidebarGroup
+          key={group.label}
+          group={group}
+          pathname={pathname}
+          collapsed={collapsed.has(group.label)}
+          onToggle={() => toggle(group.label)}
+        />
+      ))}
+    </>
+  );
+}
+
+function SidebarGroup({
+  group,
+  pathname,
+  collapsed,
+  onToggle,
+}: {
+  group: DocNavGroup;
+  pathname: string;
+  collapsed: boolean;
+  onToggle: () => void;
+}) {
+  const isActive = group.items.some((item) => pathname === item.href);
+
+  return (
+    <div className="mb-3">
+      <button
+        onClick={onToggle}
+        className={clsx(
+          "flex w-full items-center justify-between px-1 py-1 text-left",
+          "font-mono text-[10px] uppercase tracking-[0.18em] transition-colors duration-[var(--transition-fast)]",
+          isActive
+            ? "text-[var(--color-foreground)]"
+            : "text-[var(--color-muted-strong)] hover:text-[var(--color-foreground)]",
+        )}
+      >
+        <span>{group.label}</span>
+        <svg
+          className={clsx(
+            "h-2.5 w-2.5 shrink-0 transition-transform duration-[var(--transition-fast)]",
+            collapsed && "-rotate-90",
+          )}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {!collapsed && (
+        <div className="mt-0.5 space-y-px">
+          {group.items.map((item) => {
+            const active = pathname === item.href;
+            return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={clsx(
-                  "rounded px-2 py-1 hover:bg-white/5 hover:text-white",
-                  pathname === item.href && "bg-white/10 text-white"
+                  "flex items-center gap-2 py-1.5 font-mono text-sm transition-all duration-[var(--transition-fast)]",
+                  active
+                    ? "border-l-2 border-[var(--color-accent)] pl-3 -ml-px text-[var(--color-foreground)] bg-[var(--color-accent-glow)]"
+                    : "border-l-2 border-transparent pl-3 text-[var(--color-muted)] hover:text-[var(--color-foreground)]",
                 )}
               >
-                {item.label}
+                <span className="truncate">{item.label}</span>
+                {item.badge && (
+                  <span className="ml-auto shrink-0 border border-[var(--color-border-accent)] px-1 py-0.5 font-mono text-[7px] uppercase tracking-[0.1em] text-[var(--color-accent)]">
+                    {item.badge}
+                  </span>
+                )}
               </Link>
-            ))}
-          </nav>
+            );
+          })}
         </div>
-      ))}
-    </aside>
+      )}
+    </div>
   );
 }
