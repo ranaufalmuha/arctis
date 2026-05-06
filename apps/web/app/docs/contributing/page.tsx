@@ -6,15 +6,15 @@ import Link from "next/link";
 
 export default function ContributingPage() {
   return (
-    <div>
+    <div className="px-4 py-8 md:px-8 lg:px-10">
       <Section glowAccent>
         <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-accent)]">
           DOCUMENTATION
         </div>
-        <h1 className="mb-4 font-mono text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 font-mono text-4xl font-bold tracking-tight text-[var(--color-foreground)]">
           How to Contribute
         </h1>
-        <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+        <p className="max-w-2xl font-mono text-lg leading-relaxed text-[var(--color-muted)]">
           ARCTIS is open-source. Help grow the skill registry by contributing
           new skills, improving existing packages, or enhancing the platform.
         </p>
@@ -23,7 +23,7 @@ export default function ContributingPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Ways to Contribute
         </h2>
         <div className="space-y-4">
@@ -63,7 +63,7 @@ export default function ContributingPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Contribution Workflow
         </h2>
         <div className="space-y-6">
@@ -106,7 +106,7 @@ export default function ContributingPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Skill Guidelines
         </h2>
         <div className="space-y-3 text-sm leading-relaxed text-[var(--color-muted)]">

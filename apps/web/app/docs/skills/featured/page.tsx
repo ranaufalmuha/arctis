@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <DocPageShell href="/docs/skills/featured" title="Featured Skills">
       <Section>
-        <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+        <p className="max-w-2xl font-mono text-lg leading-relaxed text-[var(--color-muted)]">
           These are the most popular and well-crafted skills in the ARCTIS
           registry. Each has been reviewed for quality, composability, and
           adherence to the ARCTIS skill specification.
@@ -18,7 +18,7 @@ export default function Page() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Top Featured Skills
         </h2>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -82,7 +82,7 @@ export default function Page() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Why These Skills?
         </h2>
         <div className="space-y-4 text-base leading-relaxed text-[var(--color-muted)]">

@@ -37,7 +37,7 @@ function Node({ node, depth = 0 }: { node: FolderNode; depth: number }) {
 
 export function FolderTree({ structure }: FolderTreeProps) {
   return (
-    <div className="border border-[var(--color-border)] bg-[var(--color-panel)] p-4">
+    <div className="border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
       {structure.map((node, i) => (
         <Node key={i} node={node} depth={0} />
       ))}

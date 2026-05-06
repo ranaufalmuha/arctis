@@ -17,7 +17,7 @@ function TreeNode({ node, depth = 0 }: { node: FileNode; depth: number }) {
     <div>
       <div
         className={`flex items-center gap-2 py-1 font-mono text-sm leading-relaxed ${
-          node.highlight ? "text-[var(--color-accent)]" : "text-[var(--color-muted)]"
+           node.highlight ? "text-[var(--color-foreground)]" : "text-[var(--color-muted)]"
         }`}
         style={{ paddingLeft: `${indent}rem` }}
       >
@@ -39,7 +39,7 @@ export function FileTree({ nodes, className }: FileTreeProps) {
       className={`border border-[var(--color-border)] bg-[var(--color-panel)] p-6 ${className}`}
     >
       <div className="mb-4 flex items-center gap-2 border-b border-[var(--color-border)] pb-3">
-        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted-strong)]">
           PACKAGE STRUCTURE
         </span>
       </div>

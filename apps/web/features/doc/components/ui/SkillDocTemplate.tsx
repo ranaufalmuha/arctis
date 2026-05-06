@@ -1,5 +1,4 @@
 import type { SkillDoc } from "../../data/skills";
-import { MetadataBadge } from "./MetadataBadge";
 import { DocsTabs } from "./DocsTabs";
 import { PreviewCard } from "./PreviewCard";
 import { FeatureGrid } from "./FeatureGrid";
@@ -15,15 +14,8 @@ export function SkillDocTemplate({ doc }: SkillDocTemplateProps) {
   return (
     <div>
       {/* Header */}
-      <div className="mb-8 border-b border-[var(--color-border)] pb-8">
-        <div className="mb-4 flex flex-wrap items-center gap-2">
-          {doc.badges.map((badge, i) => (
-            <MetadataBadge key={i} variant={i === 0 ? "accent" : "default"}>
-              {badge}
-            </MetadataBadge>
-          ))}
-        </div>
-        <h1 className="mb-2 font-mono text-3xl font-bold tracking-tight md:text-4xl">
+      <div className="border-b border-[var(--color-border)] px-4 py-8 md:px-8 lg:px-10">
+        <h1 className="mb-2 font-mono text-3xl font-bold tracking-tight md:text-4xl text-[var(--color-foreground)]">
           {doc.title}
         </h1>
         <p className="font-mono text-base leading-relaxed text-[var(--color-muted)]">
@@ -38,9 +30,12 @@ export function SkillDocTemplate({ doc }: SkillDocTemplateProps) {
             key: "preview",
             label: "Preview",
             content: (
-              <div className="space-y-10">
-                <div>
-                  <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+              <div className="divide-y divide-[var(--color-border)]">
+                <div className="px-4 pt-10 pb-10 md:px-8 lg:px-10">
+                  <div
+                    data-toc-label
+                    className="mb-2 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]"
+                  >
                     {doc.type === "theme" ? "Design Direction" : "Overview"}
                   </div>
                   <p className="font-mono text-lg text-[var(--color-foreground)]">
@@ -48,19 +43,23 @@ export function SkillDocTemplate({ doc }: SkillDocTemplateProps) {
                   </p>
                 </div>
 
-                <div>
-                  <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+                <div className="py-10">
+                  <div
+                    data-toc-label
+                    className="px-4 pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)] md:px-8 lg:px-10">
                     Previews
                   </div>
                   <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 border-t border-l border-[var(--color-border)]">
-                    {doc.previews.map((preview) => (
-                      <PreviewCard key={preview.title} {...preview} />
+                    {doc.previews.map((preview, i) => (
+                      <PreviewCard key={`${preview.title}-${i}`} {...preview} />
                     ))}
                   </div>
                 </div>
 
-                <div>
-                  <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+                <div className="px-4 pt-10 md:px-8 lg:px-10">
+                  <div
+                    data-toc-label
+                    className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
                     Features
                   </div>
                   <FeatureGrid features={doc.features} />
@@ -72,9 +71,11 @@ export function SkillDocTemplate({ doc }: SkillDocTemplateProps) {
             key: "code",
             label: "Code",
             content: (
-              <div className="space-y-10">
-                <div>
-                  <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+              <div className="divide-y divide-[var(--color-border)]">
+                <div className="px-4 pb-10 md:px-8 lg:px-10">
+                  <div
+                    data-toc-label
+                    className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
                     Install
                   </div>
                   <InstallCommands
@@ -83,15 +84,19 @@ export function SkillDocTemplate({ doc }: SkillDocTemplateProps) {
                   />
                 </div>
 
-                <div>
-                  <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+                <div className="px-4 py-10 md:px-8 lg:px-10">
+                  <div
+                    data-toc-label
+                    className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
                     Folder Structure
                   </div>
                   <FolderTree structure={doc.folderStructure} />
                 </div>
 
-                <div>
-                  <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+                <div className="px-4 pt-10 md:px-8 lg:px-10">
+                  <div
+                    data-toc-label
+                    className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
                     SKILL.md
                   </div>
                   <SkillMarkdownViewer code={doc.skillMarkdown} />

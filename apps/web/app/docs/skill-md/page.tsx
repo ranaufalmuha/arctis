@@ -33,15 +33,15 @@ const fileTreeNodes = [
 
 export default function SkillMdPage() {
   return (
-    <div>
+    <div className="px-4 py-8 md:px-8 lg:px-10">
       <Section glowAccent>
         <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-accent)]">
           DOCUMENTATION
         </div>
-        <h1 className="mb-4 font-mono text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 font-mono text-4xl font-bold tracking-tight text-[var(--color-foreground)]">
           What is a SKILL.md?
         </h1>
-        <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+        <p className="max-w-2xl font-mono text-lg leading-relaxed text-[var(--color-muted)]">
           A SKILL.md file is the core instruction document in every ARCTIS
           skill package. It contains design rules, component patterns,
           typography scales, color tokens, spacing conventions, and workflow
@@ -52,7 +52,7 @@ export default function SkillMdPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Package Structure
         </h2>
         <p className="mb-6 text-base leading-relaxed text-[var(--color-muted)]">
@@ -109,7 +109,7 @@ export default function SkillMdPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Not Just Prompts
         </h2>
         <div className="space-y-4 text-base leading-relaxed text-[var(--color-muted)]">

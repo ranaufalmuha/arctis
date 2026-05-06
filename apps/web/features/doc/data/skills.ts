@@ -38,6 +38,7 @@ export type SkillDoc = {
 };
 
 export const SKILL_DOCS: Record<string, SkillDoc> = {
+  // THEMES
   "prismatic-architecture": {
     slug: "prismatic-architecture",
     title: "Prismatic Architecture",
@@ -56,26 +57,10 @@ export const SKILL_DOCS: Record<string, SkillDoc> = {
       { label: "Fast linear motion" },
     ],
     previews: [
-      {
-        title: "Landing Page Hero",
-        caption: "Large editorial hero with glow accent and CTAs",
-        tags: ["Hero", "CTA", "Glow"],
-      },
-      {
-        title: "Docs Layout",
-        caption: "Three-column docs with sidebar, content, and TOC",
-        tags: ["Sidebar", "TOC", "Grid"],
-      },
-      {
-        title: "Skill Registry Grid",
-        caption: "Bordered skill cards with metadata badges",
-        tags: ["Grid", "Cards", "Badges"],
-      },
-      {
-        title: "CTA Section",
-        caption: "Final CTA with install command block",
-        tags: ["CTA", "Command", "Glow"],
-      },
+      { title: "Landing Page Hero", caption: "Large editorial hero with glow accent and CTAs", tags: ["Hero", "CTA", "Glow"] },
+      { title: "Docs Layout", caption: "Three-column docs with sidebar, content, and TOC", tags: ["Sidebar", "TOC", "Grid"] },
+      { title: "Skill Registry Grid", caption: "Bordered skill cards with metadata badges", tags: ["Grid", "Cards", "Badges"] },
+      { title: "CTA Section", caption: "Final CTA with install command block", tags: ["CTA", "Command", "Glow"] },
     ],
     installCommands: [
       { agent: "Claude Code", command: "npx arctis add prismatic-architecture --agent claude-code" },
@@ -186,66 +171,6 @@ Use this skill when the user wants a sharp, premium, technical interface with ze
 - Decorative elements`,
   },
 
-  "minimal-saas": {
-    slug: "minimal-saas",
-    title: "Minimal SaaS",
-    type: "theme",
-    description:
-      "Clean, conversion-optimized SaaS layouts with crisp spacing, restrained color, and product-led storytelling.",
-    subtitle: "Breathing room for your product.",
-    badges: ["Theme", "SaaS", "Claude Code", "OpenCode", "Codex"],
-    agents: ["claude-code", "opencode", "codex"],
-    features: [
-      { label: "Generous whitespace" },
-      { label: "Typography-driven hierarchy" },
-      { label: "Feature grid patterns" },
-      { label: "Pricing table conventions" },
-      { label: "CTA optimization rules" },
-      { label: "Single accent color" },
-    ],
-    previews: [
-      { title: "Hero Section", caption: "Clean hero with product screenshot", tags: ["Hero", "Product", "CTA"] },
-      { title: "Feature Grid", caption: "3-column feature showcase with icons", tags: ["Grid", "Features", "Icons"] },
-      { title: "Pricing Table", caption: "Comparison pricing with highlight column", tags: ["Pricing", "Table", "CTA"] },
-      { title: "Testimonial", caption: "Quote block with attribution", tags: ["Quote", "Social", "Proof"] },
-    ],
-    installCommands: [
-      { agent: "Claude Code", command: "npx arctis add minimal-saas --agent claude-code" },
-      { agent: "OpenCode", command: "npx arctis add minimal-saas --agent opencode" },
-      { agent: "Codex", command: "npx arctis add minimal-saas --agent codex" },
-    ],
-    allInstallCommand: "npx arctis add minimal-saas --all",
-    folderStructure: [
-      { name: "minimal-saas/", type: "folder", children: [
-        { name: "SKILL.md", type: "file" },
-        { name: "arctis.json", type: "file" },
-        { name: "examples/", type: "folder", children: [
-          { name: "landing-page.md", type: "file" },
-          { name: "pricing-page.md", type: "file" },
-        ]},
-        { name: "references/", type: "folder", children: [
-          { name: "typography.md", type: "file" },
-          { name: "cta-patterns.md", type: "file" },
-        ]},
-      ]},
-    ],
-    skillMarkdown: `# Minimal SaaS
-
-## Core Rules
-- Use generous whitespace as primary layout tool.
-- Use typography to establish visual hierarchy.
-- Use a single restrained accent color.
-- Keep CTAs prominent but not aggressive.
-- Use feature grids for product messaging.
-- Keep navigation minimal and clean.
-
-## Avoid
-- Heavy decorative elements
-- Multiple competing accent colors
-- Overly dense layouts
-- Aggressive marketing language`,
-  },
-
   "retro-web": {
     slug: "retro-web",
     title: "Retro Web",
@@ -306,199 +231,221 @@ Use this skill when the user wants a sharp, premium, technical interface with ze
 - Minimalist whitespace`,
   },
 
-  "game-storefront": {
-    slug: "game-storefront",
-    title: "Game Storefront",
-    type: "theme",
-    description:
-      "Dark, immersive game store layouts with hero trailers, achievement grids, and purchase-flow patterns optimized for gaming.",
-    subtitle: "Built for discovery and purchase.",
-    badges: ["Theme", "Gaming", "Claude Code", "OpenCode", "Codex"],
-    agents: ["claude-code", "opencode", "codex"],
-    features: [
-      { label: "Cinematic hero sections" },
-      { label: "Achievement badge grids" },
-      { label: "DLC/expansion cards" },
-      { label: "Review summary widgets" },
-      { label: "Purchase flow patterns" },
-      { label: "Dark immersive backgrounds" },
-    ],
-    previews: [
-      { title: "Hero Trailer", caption: "Full-width cinematic hero with trailer embed", tags: ["Hero", "Video", "Dark"] },
-      { title: "Achievement Grid", caption: "Badge grid showing game achievements", tags: ["Grid", "Badges", "Achievement"] },
-      { title: "DLC Cards", caption: "Expansion pack cards with pricing", tags: ["Cards", "DLC", "Pricing"] },
-      { title: "Review Summary", caption: "Aggregated review scores and quotes", tags: ["Reviews", "Scores", "Quotes"] },
-    ],
-    installCommands: [
-      { agent: "Claude Code", command: "npx arctis add game-storefront --agent claude-code" },
-      { agent: "OpenCode", command: "npx arctis add game-storefront --agent opencode" },
-      { agent: "Codex", command: "npx arctis add game-storefront --agent codex" },
-    ],
-    allInstallCommand: "npx arctis add game-storefront --all",
-    folderStructure: [
-      { name: "game-storefront/", type: "folder", children: [
-        { name: "SKILL.md", type: "file" },
-        { name: "arctis.json", type: "file" },
-        { name: "examples/", type: "folder", children: [
-          { name: "game-detail-page.md", type: "file" },
-          { name: "store-browse.md", type: "file" },
-        ]},
-      ]},
-    ],
-    skillMarkdown: `# Game Storefront
-
-## Core Rules
-- Use cinematic, full-width hero sections.
-- Use achievement badge grids for game stats.
-- Use DLC and expansion card layouts.
-- Include review summary widgets.
-- Design purchase flows with clear CTAs.
-- Use dark, immersive backgrounds.
-
-## Avoid
-- Light backgrounds
-- Minimalist SaaS aesthetics
-- Small product imagery`,
-  },
-
   // ADD-ONS
-  "gsap-scroll-reveal": {
-    slug: "gsap-scroll-reveal",
-    title: "GSAP Scroll Reveal",
+  "gsap": {
+    slug: "gsap",
+    title: "GSAP",
     type: "addon",
     description:
-      "Scroll-triggered reveal animations using GSAP ScrollTrigger. Elements animate into view as the user scrolls.",
-    subtitle: "Reveal content on scroll with precision.",
+      "Professional-grade animation library with scroll-triggered reveals, stagger effects, timelines, and high-performance transforms.",
+    subtitle: "Scroll-triggered animation toolkit.",
     badges: ["Add-on", "GSAP", "Animation", "Claude Code", "OpenCode", "Codex"],
     agents: ["claude-code", "opencode", "codex"],
     features: [
-      { label: "ScrollTrigger-based reveals" },
-      { label: "Configurable stagger delays" },
-      { label: "Directional entrances" },
-      { label: "Scale + opacity combos" },
-      { label: "Once vs repeat behavior" },
+      { label: "ScrollTrigger reveals" },
+      { label: "Stagger animations" },
+      { label: "Timeline sequences" },
+      { label: "Configurable easing" },
+      { label: "Reduced-motion support" },
     ],
     previews: [
-      { title: "Fade Up", caption: "Elements fade and slide up on scroll", tags: ["Fade", "Up", "Scroll"] },
-      { title: "Stagger List", caption: "List items reveal with staggered delay", tags: ["Stagger", "List", "Delay"] },
-      { title: "Scale In", caption: "Cards scale from 0.8 to 1 on reveal", tags: ["Scale", "Cards", "Entrance"] },
+      { title: "Scroll Reveal", caption: "Elements fade and slide up on scroll", tags: ["Scroll", "Reveal", "Fade"] },
+      { title: "Stagger Grid", caption: "Cards stagger in with sequential delay", tags: ["Stagger", "Grid", "Cards"] },
+      { title: "Parallax Section", caption: "Layered parallax on scroll", tags: ["Parallax", "Depth", "Scroll"] },
+      { title: "Timeline Sequence", caption: "Chained animation timeline", tags: ["Timeline", "Sequence", "Chain"] },
     ],
     installCommands: [
-      { agent: "Claude Code", command: "npx arctis add gsap-scroll-reveal --agent claude-code" },
-      { agent: "OpenCode", command: "npx arctis add gsap-scroll-reveal --agent opencode" },
-      { agent: "Codex", command: "npx arctis add gsap-scroll-reveal --agent codex" },
+      { agent: "Claude Code", command: "npx arctis add gsap --agent claude-code" },
+      { agent: "OpenCode", command: "npx arctis add gsap --agent opencode" },
+      { agent: "Codex", command: "npx arctis add gsap --agent codex" },
     ],
-    allInstallCommand: "npx arctis add gsap-scroll-reveal --all",
+    allInstallCommand: "npx arctis add gsap --all",
     folderStructure: [
-      { name: "gsap-scroll-reveal/", type: "folder", children: [
+      { name: "gsap/", type: "folder", children: [
         { name: "SKILL.md", type: "file" },
         { name: "arctis.json", type: "file" },
         { name: "snippets/", type: "folder", children: [
-          { name: "reveal-wrapper.tsx", type: "file" },
+          { name: "scroll-reveal.tsx", type: "file" },
           { name: "stagger-list.tsx", type: "file" },
+          { name: "timeline.tsx", type: "file" },
         ]},
       ]},
     ],
-    skillMarkdown: `# GSAP Scroll Reveal
+    skillMarkdown: `# GSAP
 
 ## Core Rules
-- Use GSAP ScrollTrigger for all scroll-based reveals.
-- Apply staggered delays to list items.
-- Support directional entrances (up, down, left, right).
-- Combine scale and opacity for smooth reveals.
+- Use GSAP for all animation sequences.
+- Use ScrollTrigger for scroll-based reveals.
+- Apply staggered delays to list items (0.05-0.1s).
+- Use power2.out or power3.out for smooth easing.
 - Respect prefers-reduced-motion.
-- Keep durations under 600ms.`,
+- Keep durations between 300-600ms.
+
+## Avoid
+- Long animations over 1 second
+- Bounce or elastic easing
+- Animating layout-triggering properties`,
   },
 
-  "pixi-particle-field": {
-    slug: "pixi-particle-field",
-    title: "Pixi.js Particle Field",
+  "pixi": {
+    slug: "pixi",
+    title: "Pixi.js",
     type: "addon",
     description:
-      "Interactive WebGL particle field backgrounds using Pixi.js. GPU-accelerated particles that respond to mouse movement.",
-    subtitle: "WebGL particles that follow your cursor.",
+      "WebGL rendering engine for particle systems, shader backgrounds, and high-performance interactive graphics.",
+    subtitle: "GPU-accelerated WebGL rendering.",
     badges: ["Add-on", "Pixi.js", "WebGL", "Claude Code", "OpenCode", "Codex"],
     agents: ["claude-code", "opencode", "codex"],
     features: [
       { label: "WebGL particle system" },
-      { label: "Mouse-responsive motion" },
+      { label: "Mouse-responsive interaction" },
+      { label: "Shader-based backgrounds" },
       { label: "Configurable particle count" },
-      { label: "Color and opacity controls" },
-      { label: "Background-only mode" },
+      { label: "GPU-accelerated rendering" },
     ],
     previews: [
-      { title: "Particle Field", caption: "Background particles responding to cursor", tags: ["Particles", "Mouse", "WebGL"] },
-      { title: "Connection Lines", caption: "Particles connected by proximity lines", tags: ["Lines", "Network", "Proximity"] },
+      { title: "Particle Field", caption: "Interactive particle background", tags: ["Particles", "WebGL", "Mouse"] },
+      { title: "Shader Gradient", caption: "Animated gradient background", tags: ["Shader", "Gradient", "Animate"] },
+      { title: "Connection Mesh", caption: "Proximity-based connection lines", tags: ["Lines", "Network", "Mesh"] },
     ],
     installCommands: [
-      { agent: "Claude Code", command: "npx arctis add pixi-particle-field --agent claude-code" },
-      { agent: "OpenCode", command: "npx arctis add pixi-particle-field --agent opencode" },
-      { agent: "Codex", command: "npx arctis add pixi-particle-field --agent codex" },
+      { agent: "Claude Code", command: "npx arctis add pixi --agent claude-code" },
+      { agent: "OpenCode", command: "npx arctis add pixi --agent opencode" },
+      { agent: "Codex", command: "npx arctis add pixi --agent codex" },
     ],
-    allInstallCommand: "npx arctis add pixi-particle-field --all",
+    allInstallCommand: "npx arctis add pixi --all",
     folderStructure: [
-      { name: "pixi-particle-field/", type: "folder", children: [
+      { name: "pixi/", type: "folder", children: [
         { name: "SKILL.md", type: "file" },
         { name: "arctis.json", type: "file" },
         { name: "snippets/", type: "folder", children: [
           { name: "particle-field.tsx", type: "file" },
+          { name: "shader-bg.tsx", type: "file" },
         ]},
       ]},
     ],
-    skillMarkdown: `# Pixi.js Particle Field
+    skillMarkdown: `# Pixi.js
 
 ## Core Rules
-- Use Pixi.js for WebGL particle rendering.
+- Use Pixi.js for WebGL rendering in React.
+- Initialize application in useEffect with cleanup.
 - Particles respond to mouse position.
 - Keep particle count configurable (default 150).
 - Run as non-blocking background layer.
-- Cleanup on unmount.`,
+- Use requestAnimationFrame for smooth rendering.
+
+## Avoid
+- Excessive particle count (>500)
+- Complex physics without throttling
+- Blocking the main thread`,
   },
 
-  "custom-cursor": {
-    slug: "custom-cursor",
-    title: "Custom Cursor",
+  "shadcn": {
+    slug: "shadcn",
+    title: "Shadcn",
     type: "addon",
     description:
-      "Custom cursor implementations including magnetic hover, text reveal cursors, and flair follower effects.",
-    subtitle: "Cursor effects with personality.",
-    badges: ["Add-on", "Cursor", "Interaction", "Claude Code", "OpenCode", "Codex"],
+      "Component library integration for buttons, dialogs, forms, dropdowns, and navigation — built on Radix primitives with Tailwind styling.",
+    subtitle: "Accessible component primitives.",
+    badges: ["Add-on", "Shadcn", "Components", "Claude Code", "OpenCode", "Codex"],
     agents: ["claude-code", "opencode", "codex"],
     features: [
-      { label: "Magnetic hover effect" },
-      { label: "Text reveal cursor" },
-      { label: "Flair follower trail" },
-      { label: "Cursor state management" },
-      { label: "Touch device fallback" },
+      { label: "Button variants and sizes" },
+      { label: "Dialog and sheet overlays" },
+      { label: "Form inputs and validation" },
+      { label: "Dropdown menus" },
+      { label: "Navigation components" },
     ],
     previews: [
-      { title: "Magnetic Hover", caption: "Cursor attracts to interactive elements", tags: ["Magnetic", "Hover", "Attract"] },
-      { title: "Flair Trail", caption: "Particle trail follows cursor movement", tags: ["Trail", "Particles", "Motion"] },
+      { title: "Button Group", caption: "Primary, secondary, ghost variants", tags: ["Button", "Variant", "Group"] },
+      { title: "Dialog Modal", caption: "Overlay dialog with form content", tags: ["Dialog", "Modal", "Form"] },
+      { title: "Dropdown Menu", caption: "Context menu with icon items", tags: ["Dropdown", "Menu", "Context"] },
+      { title: "Form Layout", caption: "Input group with validation states", tags: ["Form", "Input", "Validation"] },
     ],
     installCommands: [
-      { agent: "Claude Code", command: "npx arctis add custom-cursor --agent claude-code" },
-      { agent: "OpenCode", command: "npx arctis add custom-cursor --agent opencode" },
-      { agent: "Codex", command: "npx arctis add custom-cursor --agent codex" },
+      { agent: "Claude Code", command: "npx arctis add shadcn --agent claude-code" },
+      { agent: "OpenCode", command: "npx arctis add shadcn --agent opencode" },
+      { agent: "Codex", command: "npx arctis add shadcn --agent codex" },
     ],
-    allInstallCommand: "npx arctis add custom-cursor --all",
+    allInstallCommand: "npx arctis add shadcn --all",
     folderStructure: [
-      { name: "custom-cursor/", type: "folder", children: [
+      { name: "shadcn/", type: "folder", children: [
         { name: "SKILL.md", type: "file" },
         { name: "arctis.json", type: "file" },
         { name: "snippets/", type: "folder", children: [
-          { name: "cursor-container.tsx", type: "file" },
-          { name: "flair-follower.tsx", type: "file" },
+          { name: "button.tsx", type: "file" },
+          { name: "dialog.tsx", type: "file" },
+          { name: "form.tsx", type: "file" },
         ]},
       ]},
     ],
-    skillMarkdown: `# Custom Cursor
+    skillMarkdown: `# Shadcn
 
 ## Core Rules
-- Replace default cursor with custom implementation.
-- Support magnetic hover on interactive elements.
-- Include flair follower particle trail variant.
-- Fall back to default cursor on touch devices.
-- Keep cursor size between 20-40px.`,
+- Use shadcn/ui components as the base component library.
+- Install components via npx shadcn-ui add.
+- Customize with Tailwind classes and CSS variables.
+- Follow shadcn's className merging patterns.
+- Support light and dark mode with CSS variables.
+- Prefer Radix primitives for complex interactions.
+
+## Avoid
+- Custom rebuilding of existing components
+- Inconsistent styling between shadcn and custom
+- Ignoring accessibility attributes`,
+  },
+
+  "tailwind": {
+    slug: "tailwind",
+    title: "Tailwind CSS",
+    type: "addon",
+    description:
+      "Utility-first CSS framework with design tokens, responsive utilities, dark mode, and a comprehensive set of spacing, color, and typography classes.",
+    subtitle: "Design tokens as utility classes.",
+    badges: ["Add-on", "Tailwind", "CSS", "Claude Code", "OpenCode", "Codex"],
+    agents: ["claude-code", "opencode", "codex"],
+    features: [
+      { label: "Utility-first class system" },
+      { label: "Design token configuration" },
+      { label: "Responsive breakpoints" },
+      { label: "Dark mode support" },
+      { label: "Custom CSS variable mapping" },
+    ],
+    previews: [
+      { title: "Token System", caption: "CSS variables mapped to Tailwind theme", tags: ["Tokens", "CSS", "Theme"] },
+      { title: "Responsive Grid", caption: "Breakpoint-aware grid layout", tags: ["Grid", "Responsive", "Breakpoint"] },
+      { title: "Dark Mode", caption: "Dark mode with CSS variable overrides", tags: ["Dark", "Mode", "Variables"] },
+    ],
+    installCommands: [
+      { agent: "Claude Code", command: "npx arctis add tailwind --agent claude-code" },
+      { agent: "OpenCode", command: "npx arctis add tailwind --agent opencode" },
+      { agent: "Codex", command: "npx arctis add tailwind --agent codex" },
+    ],
+    allInstallCommand: "npx arctis add tailwind --all",
+    folderStructure: [
+      { name: "tailwind/", type: "folder", children: [
+        { name: "SKILL.md", type: "file" },
+        { name: "arctis.json", type: "file" },
+        { name: "references/", type: "folder", children: [
+          { name: "tokens.md", type: "file" },
+          { name: "config.md", type: "file" },
+        ]},
+      ]},
+    ],
+    skillMarkdown: `# Tailwind CSS
+
+## Core Rules
+- Use Tailwind utility classes for all styling.
+- Define design tokens via CSS variables.
+- Map CSS variables to Tailwind's @theme block.
+- Use responsive prefixes consistently (sm:, md:, lg:, xl:).
+- Support dark mode with class-based toggling.
+- Configure spacing scale: 4, 8, 16, 24, 32, 48, 64.
+
+## Avoid
+- Mixing inline styles with utility classes
+- Custom CSS when a utility exists
+- Hardcoded color values`,
   },
 
   // RULES
@@ -542,168 +489,6 @@ Use this skill when the user wants a sharp, premium, technical interface with ze
 
 ## When to apply
 - Always. This is a global visual constraint.`,
-  },
-
-  "hairline-borders": {
-    slug: "hairline-borders",
-    title: "Hairline Borders",
-    type: "rule",
-    description:
-      "Use 1px semi-transparent borders as the primary visual separator between sections and components.",
-    subtitle: "Thin lines. Clear separation.",
-    badges: ["Rule", "Borders", "Grid"],
-    agents: ["claude-code", "opencode", "codex"],
-    features: [
-      { label: "1px borders with 10-18% opacity" },
-      { label: "Replace thick dividers" },
-      { label: "Border-based visual separation" },
-      { label: "Consistent border tokens" },
-    ],
-    previews: [
-      { title: "Section Divider", caption: "Thin hairline between page sections", tags: ["Divider", "Hairline", "1px"] },
-      { title: "Card Border", caption: "Card with 1px semi-transparent border", tags: ["Card", "Border", "Subtle"] },
-    ],
-    installCommands: [
-      { agent: "Claude Code", command: "npx arctis add hairline-borders --agent claude-code" },
-      { agent: "OpenCode", command: "npx arctis add hairline-borders --agent opencode" },
-      { agent: "Codex", command: "npx arctis add hairline-borders --agent codex" },
-    ],
-    allInstallCommand: "npx arctis add hairline-borders --all",
-    folderStructure: [
-      { name: "hairline-borders/", type: "folder", children: [
-        { name: "SKILL.md", type: "file" },
-        { name: "arctis.json", type: "file" },
-      ]},
-    ],
-    skillMarkdown: `# Hairline Borders
-
-## Core Rule
-- Use 1px borders with rgba(255,255,255,0.10-0.18) opacity.
-- Replace heavy dividers and shadows with subtle hairline lines.
-- Use consistent border color tokens across all components.
-
-## When to apply
-- Between sections, around cards, on inputs and buttons.`,
-  },
-
-  "strict-grid": {
-    slug: "strict-grid",
-    title: "Strict Grid",
-    type: "rule",
-    description:
-      "Enforce a strict CSS Grid or flex layout system with consistent gaps and alignment. Every element sits on a defined grid.",
-    subtitle: "Everything on the grid.",
-    badges: ["Rule", "Grid", "Layout"],
-    agents: ["claude-code", "opencode", "codex"],
-    features: [
-      { label: "Grid-based layout only" },
-      { label: "Consistent gap tokens" },
-      { label: "Aligned column system" },
-      { label: "Responsive breakpoints" },
-    ],
-    previews: [
-      { title: "Grid Layout", caption: "Strict 12-column grid overlay", tags: ["12-col", "Grid", "Align"] },
-      { title: "Gap System", caption: "Consistent spacing between grid items", tags: ["Gap", "Spacing", "Token"] },
-    ],
-    installCommands: [
-      { agent: "Claude Code", command: "npx arctis add strict-grid --agent claude-code" },
-      { agent: "OpenCode", command: "npx arctis add strict-grid --agent opencode" },
-      { agent: "Codex", command: "npx arctis add strict-grid --agent codex" },
-    ],
-    allInstallCommand: "npx arctis add strict-grid --all",
-    folderStructure: [
-      { name: "strict-grid/", type: "folder", children: [
-        { name: "SKILL.md", type: "file" },
-        { name: "arctis.json", type: "file" },
-      ]},
-    ],
-    skillMarkdown: `# Strict Grid
-
-## Core Rule
-- Use CSS Grid for all layout.
-- No absolute positioning unless absolutely necessary.
-- Use consistent gap tokens: 4, 8, 16, 24, 32px.
-- Define responsive breakpoints explicitly.`,
-  },
-
-  "restrained-accent": {
-    slug: "restrained-accent",
-    title: "Restrained Accent",
-    type: "rule",
-    description:
-      "Limit accent color usage to 5-10% of visible interface elements. Accent should only appear on CTAs, badges, and active states.",
-    subtitle: "Less yellow. More black.",
-    badges: ["Rule", "Color", "Accent"],
-    agents: ["claude-code", "opencode", "codex"],
-    features: [
-      { label: "Accent limited to 5-10%" },
-      { label: "Only on CTAs and badges" },
-      { label: "Never as background fill" },
-      { label: "Neutral palette dominates" },
-    ],
-    previews: [
-      { title: "Accent Usage", caption: "Yellow used only on CTA and badges", tags: ["Accent", "CTA", "Badge"] },
-      { title: "Neutral UI", caption: "Interface with minimal accent color", tags: ["Neutral", "Minimal", "Restrained"] },
-    ],
-    installCommands: [
-      { agent: "Claude Code", command: "npx arctis add restrained-accent --agent claude-code" },
-      { agent: "OpenCode", command: "npx arctis add restrained-accent --agent opencode" },
-      { agent: "Codex", command: "npx arctis add restrained-accent --agent codex" },
-    ],
-    allInstallCommand: "npx arctis add restrained-accent --all",
-    folderStructure: [
-      { name: "restrained-accent/", type: "folder", children: [
-        { name: "SKILL.md", type: "file" },
-        { name: "arctis.json", type: "file" },
-      ]},
-    ],
-    skillMarkdown: `# Restrained Accent
-
-## Core Rule
-- Use accent color on 5-10% of visible elements max.
-- Only on CTAs, badges, active states, links.
-- Never use as background fill.
-- Neutral grayscale palette dominates the UI.`,
-  },
-
-  "accessible-motion": {
-    slug: "accessible-motion",
-    title: "Accessible Motion",
-    type: "rule",
-    description:
-      "Respect prefers-reduced-motion. Keep transitions under 200ms. Disable non-essential animations when reduced motion is set.",
-    subtitle: "Motion that respects everyone.",
-    badges: ["Rule", "Accessibility", "Motion"],
-    agents: ["claude-code", "opencode", "codex"],
-    features: [
-      { label: "Respects prefers-reduced-motion" },
-      { label: "Transitions under 200ms" },
-      { label: "No flashing effects" },
-      { label: "Linear/ease-out only" },
-    ],
-    previews: [
-      { title: "Reduced Motion", caption: "Instant transitions when preference is set", tags: ["A11y", "Reduced", "Instant"] },
-      { title: "Fast Transition", caption: "Sub-200ms hover transitions", tags: ["Fast", "200ms", "Hover"] },
-    ],
-    installCommands: [
-      { agent: "Claude Code", command: "npx arctis add accessible-motion --agent claude-code" },
-      { agent: "OpenCode", command: "npx arctis add accessible-motion --agent opencode" },
-      { agent: "Codex", command: "npx arctis add accessible-motion --agent codex" },
-    ],
-    allInstallCommand: "npx arctis add accessible-motion --all",
-    folderStructure: [
-      { name: "accessible-motion/", type: "folder", children: [
-        { name: "SKILL.md", type: "file" },
-        { name: "arctis.json", type: "file" },
-      ]},
-    ],
-    skillMarkdown: `# Accessible Motion
-
-## Core Rule
-- Check prefers-reduced-motion before animating.
-- Keep all transitions under 200ms.
-- Use linear or ease-out only. No spring/bounce.
-- Never use flashing or strobing effects.`,
   },
 
   // AGENTS

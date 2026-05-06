@@ -3,7 +3,7 @@ import { SkillDocTemplate } from "@/features/doc/components/ui/SkillDocTemplate"
 import { notFound } from "next/navigation";
 
 export default function Page() {
-  const doc = getSkillDoc("game-storefront");
+  const doc = getSkillDoc("pixi");
   if (!doc) notFound();
   return <SkillDocTemplate doc={doc} />;
 }

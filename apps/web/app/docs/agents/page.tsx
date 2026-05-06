@@ -9,10 +9,10 @@ export default function AgentsPage() {
         <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-accent)]">
           DOCUMENTATION
         </div>
-        <h1 className="mb-4 font-mono text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 font-mono text-4xl font-bold tracking-tight text-[var(--color-foreground)]">
           Agent Setup
         </h1>
-        <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+        <p className="max-w-2xl font-mono text-lg leading-relaxed text-[var(--color-muted)]">
           Configure each supported agent to work with ARCTIS skills.
         </p>
       </Section>
@@ -20,7 +20,7 @@ export default function AgentsPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Claude Code
         </h2>
         <p className="mb-4 text-base leading-relaxed text-[var(--color-muted)]">
@@ -49,7 +49,7 @@ export default function AgentsPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           OpenCode
         </h2>
         <p className="mb-4 text-base leading-relaxed text-[var(--color-muted)]">
@@ -77,7 +77,7 @@ export default function AgentsPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Codex
         </h2>
         <p className="mb-4 text-base leading-relaxed text-[var(--color-muted)]">

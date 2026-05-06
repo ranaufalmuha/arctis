@@ -4,15 +4,15 @@ import { CommandBlock } from "@/shared/components/ui/CommandBlock";
 
 export default function InstallationPage() {
   return (
-    <div>
+    <div className="px-4 py-8 md:px-8 lg:px-10">
       <Section glowAccent>
         <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-accent)]">
           DOCUMENTATION
         </div>
-        <h1 className="mb-4 font-mono text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 font-mono text-4xl font-bold tracking-tight text-[var(--color-foreground)]">
           How to Install a Skill
         </h1>
-        <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+        <p className="max-w-2xl font-mono text-lg leading-relaxed text-[var(--color-muted)]">
           Install ARCTIS skills into your agent with a single CLI command.
         </p>
       </Section>
@@ -20,7 +20,7 @@ export default function InstallationPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Prerequisites
         </h2>
         <div className="space-y-3">
@@ -42,7 +42,7 @@ export default function InstallationPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Install Commands
         </h2>
         <div className="space-y-6">
@@ -57,7 +57,7 @@ export default function InstallationPage() {
             },
             {
               title: "Install multiple skills at once",
-              cmd: "npx arctis add minimal-saas brutalist-ui --all",
+              cmd: "npx arctis add brutalist-ui retro-web --all",
             },
             {
               title: "List installed skills",
@@ -81,7 +81,7 @@ export default function InstallationPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Where Skills Are Installed
         </h2>
         <div className="space-y-4 text-base leading-relaxed text-[var(--color-muted)]">

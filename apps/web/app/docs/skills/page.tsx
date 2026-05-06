@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <DocPageShell href="/docs/skills" title="Browse All Skills">
       <div className="mb-10">
-        <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+        <p className="max-w-2xl font-mono text-lg leading-relaxed text-[var(--color-muted)]">
           ARCTIS skills are portable instruction packages that teach AI coding
           agents design taste, frontend patterns, and workflow rules. Each skill
           is a self-contained directory with a SKILL.md specification that
@@ -14,7 +14,7 @@ export default function Page() {
       </div>
 
       <div className="mb-10">
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Skill Categories
         </h2>
         <p className="mb-6 text-base leading-relaxed text-[var(--color-muted)]">
@@ -63,7 +63,7 @@ export default function Page() {
       </div>
 
       <div className="mb-10">
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Composable Skill Model
         </h2>
         <p className="mb-6 text-base leading-relaxed text-[var(--color-muted)]">
@@ -114,7 +114,7 @@ export default function Page() {
       </div>
 
       <div>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           How Skills Compose
         </h2>
         <p className="mb-6 text-base leading-relaxed text-[var(--color-muted)]">
@@ -129,11 +129,11 @@ export default function Page() {
             },
             {
               label: "Add interaction layers",
-              desc: "GSAP Scroll Reveal + Custom Cursor — adds scroll-triggered animations and a custom cursor follower to the base theme.",
+              desc: "GSAP + Shadcn — adds scroll-triggered animations and production-ready components to the base theme.",
             },
             {
               label: "Apply design constraints",
-              desc: "Zero Radius + Hairline Borders + Restrained Accent Color — enforces design rules that keep the output consistent and on-brand.",
+              desc: "Zero Radius — enforces design rules that keep the output consistent and on-brand.",
             },
             {
               label: "Install into your agent",

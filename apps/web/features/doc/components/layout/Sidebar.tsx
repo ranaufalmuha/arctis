@@ -7,7 +7,7 @@ import clsx from "clsx";
 import { DOCS_NAV } from "../../data/nav";
 import type { DocNavGroup } from "../../data/nav";
 
-export function Sidebar() {
+export function Sidebar({ activeTab }: { activeTab?: "get-started" | "agents" }) {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState<Set<string>>(() => {
     const c = new Set<string>();
@@ -15,6 +15,12 @@ export function Sidebar() {
       if (g.defaultOpen === false) c.add(g.label);
     });
     return c;
+  });
+
+  const visibleGroups = DOCS_NAV.filter((group) => {
+    if (activeTab === "agents") return group.label === "Agents";
+    // "get-started" (default): show all except Agents
+    return group.label !== "Agents";
   });
 
   const toggle = (label: string) => {
@@ -28,7 +34,7 @@ export function Sidebar() {
 
   return (
     <>
-      {DOCS_NAV.map((group) => (
+      {visibleGroups.map((group) => (
         <SidebarGroup
           key={group.label}
           group={group}
@@ -97,7 +103,7 @@ function SidebarGroup({
               >
                 <span className="truncate">{item.label}</span>
                 {item.badge && (
-                  <span className="ml-auto shrink-0 border border-[var(--color-border-accent)] px-1 py-0.5 font-mono text-[7px] uppercase tracking-[0.1em] text-[var(--color-accent)]">
+                  <span className="ml-auto shrink-0 border border-[var(--color-border-accent)] px-1 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-[var(--color-accent)]">
                     {item.badge}
                   </span>
                 )}

@@ -4,15 +4,15 @@ import { CommandBlock } from "@/shared/components/ui/CommandBlock";
 
 export default function CreatingPage() {
   return (
-    <div>
+    <div className="px-4 py-8 md:px-8 lg:px-10">
       <Section glowAccent>
         <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-accent)]">
           DOCUMENTATION
         </div>
-        <h1 className="mb-4 font-mono text-4xl font-bold tracking-tight">
+        <h1 className="mb-4 font-mono text-4xl font-bold tracking-tight text-[var(--color-foreground)]">
           How to Create a Skill
         </h1>
-        <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+        <p className="max-w-2xl font-mono text-lg leading-relaxed text-[var(--color-muted)]">
           Build your own ARCTIS skill package and share it with the community.
         </p>
       </Section>
@@ -20,7 +20,7 @@ export default function CreatingPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           1. Scaffold a New Skill
         </h2>
         <p className="mb-4 text-base leading-relaxed text-[var(--color-muted)]">
@@ -32,7 +32,7 @@ export default function CreatingPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           2. Write Your SKILL.md
         </h2>
         <p className="mb-4 text-base leading-relaxed text-[var(--color-muted)]">
@@ -76,7 +76,7 @@ export default function CreatingPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           3. Add Examples and References
         </h2>
         <p className="mb-4 text-base leading-relaxed text-[var(--color-muted)]">
@@ -106,7 +106,7 @@ export default function CreatingPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           4. Configure arctis.json
         </h2>
         <p className="mb-4 text-base leading-relaxed text-[var(--color-muted)]">
@@ -131,7 +131,7 @@ export default function CreatingPage() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           5. Test and Publish
         </h2>
         <p className="mb-4 text-base leading-relaxed text-[var(--color-muted)]">

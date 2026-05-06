@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 type TocItem = {
   id: string;
@@ -11,11 +12,13 @@ type TocItem = {
 export function TableOfContents() {
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
+  const navRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const elements = Array.from(
       document.querySelectorAll<HTMLElement>(
-        ".doc-content h2, .doc-content h3",
+        ".doc-content h2, .doc-content h3, .doc-content [data-toc-label]",
       ),
     );
 
@@ -32,7 +35,7 @@ export function TableOfContents() {
       return {
         id,
         text: el.textContent || "",
-        level: el.tagName === "H2" ? 2 : 3,
+        level: el.tagName === "H2" || el.hasAttribute("data-toc-label") ? 2 : 3,
       };
     });
 
@@ -43,6 +46,14 @@ export function TableOfContents() {
         for (const entry of entries) {
           if (entry.isIntersecting) {
             setActiveId(entry.target.id);
+
+            // Auto-scroll TOC to keep active heading visible
+            const link = navRef.current?.querySelector(
+              `a[href="#${entry.target.id}"]`,
+            );
+            if (link) {
+              link.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }
           }
         }
       },
@@ -51,29 +62,36 @@ export function TableOfContents() {
 
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   if (headings.length === 0) return null;
 
   return (
-    <nav className="hidden xl:block w-48 shrink-0">
-      <div className="sticky top-28 pt-1">
-        <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+    <aside className="hidden xl:block w-56 shrink-0 border-l border-[var(--color-border)] bg-[var(--color-background)]">
+      <nav ref={navRef} className="sticky top-[6.25rem] h-[calc(100vh-6.25rem)] overflow-y-auto px-3 py-4">
+        <div className="mb-3 px-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted-strong)]">
           On this page
         </div>
-        <ul className="space-y-1 border-l border-[var(--color-border)]">
+        <ul className="space-y-0">
           {headings.map((h) => (
             <li key={h.id}>
               <a
                 href={`#${h.id}`}
-                className={`block py-1 font-mono text-xs leading-relaxed transition-colors duration-[var(--transition-fast)] hover:text-[var(--color-foreground)] ${
+                className={`block py-1.5 font-mono text-sm leading-relaxed transition-colors duration-[var(--transition-fast)] hover:text-[var(--color-foreground)] ${
                   h.id === activeId
-                    ? "border-l-2 border-[var(--color-accent)] pl-[calc(0.5rem-2px)] text-[var(--color-foreground)] -ml-px"
-                    : "border-l-2 border-transparent pl-2 text-[var(--color-muted)]"
-                } ${h.level === 3 ? "pl-6" : ""}`}
+                    ? "border-l-2 border-[var(--color-accent)] pl-[calc(0.75rem-2px)] text-[var(--color-foreground)] bg-[var(--color-accent-glow)] -ml-px"
+                    : "border-l-2 border-transparent pl-3 text-[var(--color-muted)]"
+                } ${h.level === 3 ? "pl-8" : ""}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById(h.id)?.scrollIntoView({ behavior: "smooth" });
+                  const target = document.getElementById(h.id);
+                  if (target) {
+                    const main = target.closest("main");
+                    if (main) {
+                      const top = target.offsetTop - 80;
+                      main.scrollTo({ top, behavior: "smooth" });
+                    }
+                  }
                 }}
               >
                 {h.text}
@@ -81,7 +99,7 @@ export function TableOfContents() {
             </li>
           ))}
         </ul>
-      </div>
-    </nav>
+      </nav>
+    </aside>
   );
 }

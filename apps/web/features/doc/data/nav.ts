@@ -33,22 +33,17 @@ export const DOCS_NAV: DocNavGroup[] = [
     items: [
       { label: "Prismatic Architecture", href: "/docs/themes/prismatic-architecture", badge: "DEFAULT", slug: "prismatic-architecture" },
       { label: "Brutalist UI", href: "/docs/themes/brutalist-ui", slug: "brutalist-ui" },
-      { label: "Minimal SaaS", href: "/docs/themes/minimal-saas", slug: "minimal-saas" },
       { label: "Retro Web", href: "/docs/themes/retro-web", slug: "retro-web" },
-      { label: "Game Storefront", href: "/docs/themes/game-storefront", slug: "game-storefront" },
     ],
   },
   {
     label: "Add-ons",
     defaultOpen: true,
     items: [
-      { label: "GSAP Scroll Reveal", href: "/docs/addons/gsap-scroll-reveal", slug: "gsap-scroll-reveal" },
-      { label: "Pixi.js Particle Field", href: "/docs/addons/pixi-particle-field", slug: "pixi-particle-field" },
-      { label: "Custom Cursor", href: "/docs/addons/custom-cursor", slug: "custom-cursor" },
-      { label: "Shader Background", href: "/docs/addons/shader-background", slug: "shader-background" },
-      { label: "Magnetic Button", href: "/docs/addons/magnetic-button", slug: "magnetic-button" },
-      { label: "Page Transition", href: "/docs/addons/page-transition", slug: "page-transition" },
-      { label: "Interactive Grid", href: "/docs/addons/interactive-grid", slug: "interactive-grid" },
+      { label: "GSAP", href: "/docs/addons/gsap", slug: "gsap" },
+      { label: "Pixi.js", href: "/docs/addons/pixi", slug: "pixi" },
+      { label: "Shadcn", href: "/docs/addons/shadcn", slug: "shadcn" },
+      { label: "Tailwind CSS", href: "/docs/addons/tailwind", slug: "tailwind" },
     ],
   },
   {
@@ -56,10 +51,6 @@ export const DOCS_NAV: DocNavGroup[] = [
     defaultOpen: true,
     items: [
       { label: "Zero Radius", href: "/docs/rules/zero-radius", slug: "zero-radius" },
-      { label: "Hairline Borders", href: "/docs/rules/hairline-borders", slug: "hairline-borders" },
-      { label: "Strict Grid", href: "/docs/rules/strict-grid", slug: "strict-grid" },
-      { label: "Restrained Accent", href: "/docs/rules/restrained-accent", slug: "restrained-accent" },
-      { label: "Accessible Motion", href: "/docs/rules/accessible-motion", slug: "accessible-motion" },
     ],
   },
   {
@@ -69,15 +60,6 @@ export const DOCS_NAV: DocNavGroup[] = [
       { label: "Claude Code", href: "/docs/agents/claude-code", slug: "claude-code-agent" },
       { label: "OpenCode", href: "/docs/agents/opencode", slug: "opencode-agent" },
       { label: "Codex", href: "/docs/agents/codex", slug: "codex-agent" },
-    ],
-  },
-  {
-    label: "Contribute",
-    defaultOpen: false,
-    items: [
-      { label: "Create a Skill", href: "/docs/contribute/create-skill" },
-      { label: "Skill Format", href: "/docs/contribute/skill-format" },
-      { label: "Review Checklist", href: "/docs/contribute/review-checklist" },
     ],
   },
 ];

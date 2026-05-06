@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { HairlineDivider } from "@/shared/components/ui/HairlineDivider";
 
 type FooterLink = { label: string; href: string; external?: boolean };
@@ -12,8 +13,8 @@ const footerCols: FooterCol[] = [
   {
     title: "Product",
     links: [
-      { label: "Browse Skills", href: "/skills" },
-      { label: "Skill Registry", href: "/skills" },
+      { label: "Browse Themes", href: "/docs" },
+      { label: "Documentation", href: "/docs" },
       { label: "Installation", href: "/docs/installation" },
       { label: "Changelog", href: "https://github.com/ranaufalmuha/arctis", external: true },
     ],
@@ -58,9 +59,13 @@ export function Footer() {
           {/* Brand column */}
           <div className="col-span-2 md:col-span-4">
             <Link href="/" className="inline-flex items-center gap-2 mb-4">
-              <span className="font-mono text-lg font-bold tracking-tighter text-[var(--color-foreground)]">
-                ARCTIS
-              </span>
+              <Image
+                src="/logo/logo-horizontal-dark.svg"
+                alt="Arctis"
+                width={130}
+                height={30}
+                className="h-6 w-auto"
+              />
               <span className="border border-[var(--color-border-accent)] px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--color-accent)]">
                 SKILLS
               </span>
@@ -140,7 +145,7 @@ export function Footer() {
           <span>MIT License</span>
         </div>
         <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-muted)]">
-          <span className="text-[var(--color-accent)]">PRISMATIC ARCHITECTURE</span>
+          <span className="text-[var(--color-muted)]">PRISMATIC ARCHITECTURE</span>
           <span className="mx-2 text-[var(--color-muted-strong)]">/</span>
           <span>WHERE FLUID MOTION MEETS BRUTALIST PRECISION</span>
         </div>

@@ -23,7 +23,7 @@ export function CommandBlock({ command, className }: CommandBlockProps) {
       <code className="text-[var(--color-foreground)] select-all">{command}</code>
       <button
         onClick={copy}
-        className="ml-4 shrink-0 border border-[var(--color-border)] px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-[var(--color-muted)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-foreground)] duration-[var(--transition-fast)]"
+        className="ml-4 shrink-0 border border-[var(--color-border)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--color-muted)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-foreground)] duration-[var(--transition-fast)]"
       >
         {copied ? "Copied" : "Copy"}
       </button>

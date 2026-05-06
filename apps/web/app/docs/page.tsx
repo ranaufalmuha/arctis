@@ -5,11 +5,11 @@ import Link from "next/link";
 export default function Page() {
   return (
     <div>
-      <div className="mb-8 border-b border-[var(--color-border)] pb-8">
+      <div className="mb-8 border-b border-[var(--color-border)] px-4 pb-8 md:px-8 lg:px-10">
         <div className="mb-4 flex items-center gap-2">
           <Badge variant="accent">GETTING STARTED</Badge>
         </div>
-        <h1 className="mb-2 font-mono text-3xl font-bold tracking-tight md:text-4xl">
+        <h1 className="mb-2 font-mono text-3xl font-bold tracking-tight md:text-4xl text-[var(--color-foreground)]">
           Getting Started
         </h1>
         <p className="font-mono text-base leading-relaxed text-[var(--color-muted)]">
@@ -18,17 +18,16 @@ export default function Page() {
       </div>
 
       <div className="mb-10">
-        <h2 className="mb-3 font-mono text-xl font-semibold tracking-tight">1. Install ARCTIS CLI</h2>
+        <h2 className="mb-3 font-mono text-xl font-semibold tracking-tight text-[var(--color-foreground)]">1. Install ARCTIS CLI</h2>
         <CommandBlock command="npm install -g arctis" />
       </div>
 
       <div className="mb-10">
-        <h2 className="mb-3 font-mono text-xl font-semibold tracking-tight">2. Choose a Skill</h2>
+        <h2 className="mb-3 font-mono text-xl font-semibold tracking-tight text-[var(--color-foreground)]">2. Choose a Skill</h2>
         <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 border-t border-l border-[var(--color-border)]">
           {[
             { label: "Prismatic Architecture", href: "/docs/themes/prismatic-architecture", desc: "Default ARCTIS design system" },
             { label: "Brutalist UI", href: "/docs/themes/brutalist-ui", desc: "Raw, structural, high-contrast" },
-            { label: "Minimal SaaS", href: "/docs/themes/minimal-saas", desc: "Clean, conversion-optimized" },
             { label: "Retro Web", href: "/docs/themes/retro-web", desc: "Y2K-era web aesthetics" },
           ].map((item) => (
             <Link
@@ -46,15 +45,15 @@ export default function Page() {
       </div>
 
       <div className="mb-10">
-        <h2 className="mb-3 font-mono text-xl font-semibold tracking-tight">3. Install the Skill</h2>
+        <h2 className="mb-3 font-mono text-xl font-semibold tracking-tight text-[var(--color-foreground)]">3. Install the Skill</h2>
         <CommandBlock command="npx arctis add prismatic-architecture --all" />
         <p className="mt-3 font-mono text-sm text-[var(--color-muted)]">
           Installs into Claude Code, OpenCode, and Codex simultaneously.
         </p>
       </div>
 
-      <div>
-        <h2 className="mb-3 font-mono text-xl font-semibold tracking-tight">4. Start Building</h2>
+    <div className="px-4 py-8 md:px-8 lg:px-10">
+        <h2 className="mb-3 font-mono text-xl font-semibold tracking-tight text-[var(--color-foreground)]">4. Start Building</h2>
         <p className="font-mono text-sm leading-relaxed text-[var(--color-muted)]">
           Your agent now references the installed skill during code generation. Prompt your
           agent normally — the skill&apos;s design rules, component patterns, and workflow

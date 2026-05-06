@@ -8,7 +8,7 @@ export default function Page() {
         <h2 className="mb-4 font-mono text-2xl font-semibold tracking-tight">
           Browse All Add-ons
         </h2>
-        <p className="text-base leading-relaxed text-[var(--color-muted)]">
+        <p className="font-mono text-base leading-relaxed text-[var(--color-muted)]">
           Add-ons define interaction, animation, visual effects, and
           library-specific behavior. They layer on top of any Theme and can be
           combined freely. Use multiple Add-ons with one Theme for a complete

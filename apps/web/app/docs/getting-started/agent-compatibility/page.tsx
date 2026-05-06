@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <DocPageShell href="/docs/getting-started/agent-compatibility" title="Agent Compatibility">
       <Section>
-        <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+        <p className="max-w-2xl font-mono text-lg leading-relaxed text-[var(--color-muted)]">
           ARCTIS skills are agent-agnostic. A single skill package works across
           Claude Code, OpenCode, and Codex without modification. Each agent
           loads skills from its own configuration directory, and the ARCTIS CLI
@@ -18,7 +18,7 @@ export default function Page() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Supported Agents
         </h2>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
@@ -81,7 +81,7 @@ export default function Page() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Install Across All Agents
         </h2>
         <p className="mb-4 text-base leading-relaxed text-[var(--color-muted)]">
@@ -99,7 +99,7 @@ export default function Page() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Per-Agent Installation
         </h2>
         <p className="mb-4 text-base leading-relaxed text-[var(--color-muted)]">

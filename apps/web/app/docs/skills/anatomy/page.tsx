@@ -7,7 +7,7 @@ export default function Page() {
   return (
     <DocPageShell href="/docs/skills/anatomy" title="Skill Anatomy">
       <Section>
-        <p className="max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+        <p className="max-w-2xl font-mono text-lg leading-relaxed text-[var(--color-muted)]">
           Every ARCTIS skill follows a consistent file structure. Understanding
           this anatomy is essential for creating, debugging, and extending
           skills. Each file and directory has a specific purpose in the skill
@@ -18,7 +18,7 @@ export default function Page() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           File Structure
         </h2>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[360px_1fr]">
@@ -115,7 +115,7 @@ export default function Page() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           The arctis.json Manifest
         </h2>
         <p className="mb-6 text-base leading-relaxed text-[var(--color-muted)]">
@@ -146,7 +146,7 @@ export default function Page() {
       <HairlineDivider />
 
       <Section>
-        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight">
+        <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Agent Adapters
         </h2>
         <p className="mb-6 text-base leading-relaxed text-[var(--color-muted)]">

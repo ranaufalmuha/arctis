@@ -22,8 +22,8 @@ export function RegistryDiagram() {
 
         {/* ARCTIS registry hub (center) */}
         <div className="col-span-1 flex items-center justify-center">
-          <div className="w-full border border-[var(--color-accent)] bg-[var(--color-panel)] p-6 text-center shadow-[0_0_40px_var(--color-accent-glow)]">
-            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-accent)]">
+          <div className="w-full border border-[var(--color-border-strong)] bg-[var(--color-panel)] p-6 text-center">
+            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
               REGISTRY
             </div>
             <div className="mt-1 font-mono text-xl font-semibold text-[var(--color-foreground)]">

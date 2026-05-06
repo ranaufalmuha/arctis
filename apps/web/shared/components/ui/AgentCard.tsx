@@ -9,7 +9,7 @@ type AgentCardProps = {
 export function AgentCard({ agent, className }: AgentCardProps) {
   return (
     <div
-      className={`group relative border border-[var(--color-border)] bg-[var(--color-panel)] p-6 transition-all hover:border-[var(--color-border-strong)] hover:bg-[var(--color-panel-strong)] hover:shadow-[0_0_40px_var(--color-accent-glow)] ${className}`}
+      className={`group relative border border-[var(--color-border)] bg-[var(--color-panel)] p-6 transition-all hover:border-[var(--color-border-strong)] hover:bg-[var(--color-panel-strong)] ${className}`}
     >
       <div className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
         AGENT
@@ -23,7 +23,7 @@ export function AgentCard({ agent, className }: AgentCardProps) {
         code generation.
       </p>
       <div className="flex items-center gap-2">
-        <Badge variant="accent">.arctis</Badge>
+        <Badge variant="outline">.arctis</Badge>
         <Badge>SKILL.md</Badge>
       </div>
     </div>

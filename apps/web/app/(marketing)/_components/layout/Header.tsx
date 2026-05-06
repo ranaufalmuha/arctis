@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useRef, useEffect, useCallback } from "react";
 
 type DropdownItem = {
@@ -18,23 +19,6 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
-    label: "Skills",
-    children: [
-      { label: "Browse All", href: "/skills", description: "Explore the full skill registry", badge: "NEW" },
-      { label: "Design Styles", href: "/skills?category=design-style", description: "Brutalist UI, Retro Web, Glassmorphism" },
-      { label: "Layout Patterns", href: "/skills?category=layout-pattern", description: "Admin Dashboards, Dev Portfolios, Editorial" },
-      { label: "Industry Templates", href: "/skills?category=industry-template", description: "SaaS, Web3, Game Storefronts" },
-    ],
-  },
-  {
-    label: "Agents",
-    children: [
-      { label: "Claude Code", href: "/docs/agents", description: "Anthropic's agentic coding tool" },
-      { label: "OpenCode", href: "/docs/agents", description: "Open-source AI coding agent" },
-      { label: "Codex", href: "/docs/agents", description: "OpenAI's coding agent" },
-    ],
-  },
-  {
     label: "Docs",
     children: [
       { label: "What is ARCTIS?", href: "/docs", description: "Platform overview" },
@@ -43,8 +27,6 @@ const navItems: NavItem[] = [
       { label: "Creating Skills", href: "/docs/creating", description: "Build your own" },
     ],
   },
-  { label: "Registry", href: "/skills" },
-  { label: "Contribute", href: "/docs/contributing" },
 ];
 
 export function Header() {
@@ -120,9 +102,14 @@ export function Header() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0" onClick={() => setMobileOpen(false)}>
-            <span className="font-mono text-xl font-bold tracking-tighter text-[var(--color-foreground)]">
-              ARCTIS
-            </span>
+            <Image
+              src={isLight ? "/logo/logo-horizontal-light.svg" : "/logo/logo-horizontal-dark.svg"}
+              alt="Arctis"
+              width={130}
+              height={30}
+              className="h-6 w-auto"
+              priority
+            />
             <span className="border border-[var(--color-border-accent)] px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--color-accent)]">
               SKILLS
             </span>
@@ -178,11 +165,11 @@ export function Header() {
                             >
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-2">
-                                  <span className="font-mono text-sm text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors duration-[var(--transition-fast)]">
+                                  <span className="font-mono text-sm text-[var(--color-foreground)] transition-colors duration-[var(--transition-fast)]">
                                     {child.label}
                                   </span>
                                   {child.badge && (
-                                    <span className="border border-[var(--color-border-accent)] px-1 py-0.5 font-mono text-[8px] uppercase tracking-[0.12em] text-[var(--color-accent)]">
+                                    <span className="border border-[var(--color-border)] px-1 py-0.5 font-mono text-[8px] uppercase tracking-[0.12em] text-[var(--color-muted)]">
                                       {child.badge}
                                     </span>
                                   )}
@@ -215,10 +202,10 @@ export function Header() {
 
             <div className="ml-3 flex items-center gap-2 border-l border-[var(--color-border)] pl-3">
               <Link
-                href="/skills"
-                className="border border-[var(--color-foreground)] bg-[var(--color-foreground)] px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-wider text-[var(--color-background)] hover:bg-[var(--color-accent)] hover:text-[var(--color-background)] hover:border-[var(--color-accent)] hover:shadow-[0_0_20px_var(--color-accent-glow)] transition-all duration-[var(--transition-fast)]"
+                href="/docs"
+                className="border border-[var(--color-foreground)] bg-[var(--color-foreground)] px-4 py-1.5 font-mono text-xs font-medium uppercase tracking-wider text-[var(--color-background)] hover:opacity-90 transition-all duration-[var(--transition-fast)]"
               >
-                Browse Skills
+                Get Started
               </Link>
               <Link
                 href="https://github.com/ranaufalmuha/arctis"
@@ -291,7 +278,7 @@ export function Header() {
                             <div className="font-mono text-sm text-[var(--color-foreground)]">
                               {child.label}
                               {child.badge && (
-                                <span className="ml-2 border border-[var(--color-border-accent)] px-1 py-0.5 font-mono text-[8px] uppercase text-[var(--color-accent)]">
+                                <span className="ml-2 border border-[var(--color-border)] px-1 py-0.5 font-mono text-[8px] uppercase text-[var(--color-muted)]">
                                   {child.badge}
                                 </span>
                               )}
@@ -323,11 +310,11 @@ export function Header() {
 
             <div className="mt-6 space-y-3">
               <Link
-                href="/skills"
-                className="block w-full border border-[var(--color-foreground)] bg-[var(--color-foreground)] py-3 text-center font-mono text-sm font-medium uppercase tracking-wider text-[var(--color-background)] hover:bg-[var(--color-accent)] hover:text-[var(--color-background)] hover:border-[var(--color-accent)] transition-all duration-[var(--transition-fast)]"
+                href="/docs"
+                className="block w-full border border-[var(--color-foreground)] bg-[var(--color-foreground)] py-3 text-center font-mono text-sm font-medium uppercase tracking-wider text-[var(--color-background)] hover:opacity-90 transition-all duration-[var(--transition-fast)]"
                 onClick={() => setMobileOpen(false)}
               >
-                Browse Skills
+                Get Started
               </Link>
               <Link
                 href="https://github.com/ranaufalmuha/arctis"
