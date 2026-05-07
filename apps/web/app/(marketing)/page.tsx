@@ -176,7 +176,7 @@ function RotatingLogo({
             src={current.src}
             alt={current.name}
             fill
-            className="object-contain p-10"
+            className="object-contain p-4 md:p-6 lg:p-10"
           />
         </motion.div>
       </AnimatePresence>
@@ -264,7 +264,7 @@ export default function Home() {
         </section>
 
         {/* ===== 3. WORKS WITH ===== */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 h-[126px] border-b border-border">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 h-50 lg:h-[126px] border-b border-border">
           {INTERVALS.map((interval, i) => (
             <div key={i} className="border-r border-b border-border h-full">
               <RotatingLogo
