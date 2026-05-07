@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LuCheck, LuPaintbrush, LuPlus, LuListChecks } from "react-icons/lu";
+import { CodeBlock } from "@arctis/ui";
 
 const brands = [
   { name: "Anime.js", src: "/assets/brands/animejs.svg" },
@@ -90,51 +91,38 @@ function WhiteSection({ children }: { children: React.ReactNode }) {
 
 function InstallTabs() {
   const [tab, setTab] = useState<"macos" | "windows">("macos");
-  const [copied, setCopied] = useState(false);
 
   const commands = {
     macos: "curl -fsSL https://arctis.dev | bash",
     windows: "irm https://arctis.dev/ps1 | iex",
   };
 
-  const copy = async () => {
-    await navigator.clipboard.writeText(commands[tab]);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
-
   return (
-    <div className="mx-auto max-w-lg">
-      <div className="flex">
+    <div className="mx-auto w-full max-w-lg">
+      <div className="flex gap-0.5">
         <button
-          className={`px-4 py-2 font-mono text-xs uppercase tracking-wider transition-colors ${
-            tab === "macos"
-              ? "text-foreground border-b-2 border-foreground"
-              : "text-muted border-b border-border hover:text-foreground"
-          }`}
           onClick={() => setTab("macos")}
+          className={`relative px-3 py-1.5 font-mono text-xs tracking-wide transition-colors ${
+            tab === "macos"
+              ? "text-foreground border border-border border-b-transparent bg-panel"
+              : "text-muted border border-transparent hover:text-foreground"
+          }`}
         >
           macOS / Linux
         </button>
         <button
-          className={`px-4 py-2 font-mono text-xs uppercase tracking-wider transition-colors ${
-            tab === "windows"
-              ? "text-foreground border-b-2 border-foreground"
-              : "text-muted border-b border-border hover:text-foreground"
-          }`}
           onClick={() => setTab("windows")}
+          className={`relative px-3 py-1.5 font-mono text-xs tracking-wide transition-colors ${
+            tab === "windows"
+              ? "text-foreground border border-border border-b-transparent bg-panel"
+              : "text-muted border border-transparent hover:text-foreground"
+          }`}
         >
           Windows
         </button>
       </div>
-      <div className="flex items-center justify-between border border-border bg-panel px-4 py-3 font-mono text-sm">
-        <code className="text-foreground select-all">{commands[tab]}</code>
-        <button
-          onClick={copy}
-          className="ml-4 shrink-0 border border-border px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-muted hover:border-border-strong hover:text-foreground transition-colors"
-        >
-          {copied ? "Copied" : "Copy"}
-        </button>
+      <div className="-mt-[1px]">
+        <CodeBlock code={commands[tab]} lang="bash" />
       </div>
     </div>
   );

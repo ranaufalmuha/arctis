@@ -7,12 +7,20 @@ import { DocsTabBar } from "./DocsTabBar";
 import { Sidebar } from "./Sidebar";
 import { PrevNextNav } from "./PrevNextNav";
 
+const DIAGONAL = `repeating-linear-gradient(135deg, transparent, transparent 4px, rgba(255,255,255,0.05) 4px, rgba(255,255,255,0.05) 8px, transparent 8px, transparent 12px)`;
+
 export function Layout({ children }: { children: ReactNode }) {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<"get-started" | "agents">("get-started");
 
   return (
-    <div className="flex h-screen flex-col bg-[var(--color-background)] text-[var(--color-foreground)]">
+    <div className="flex h-screen flex-col text-[var(--color-foreground)] relative isolate">
+      {/* Diagonal line shading — fixed to viewport */}
+      <div
+        className="fixed inset-0 pointer-events-none -z-10"
+        style={{ backgroundImage: DIAGONAL }}
+      />
+
       <Header />
 
       <DocsTabBar activeTab={activeTab} onTabChange={setActiveTab} />
@@ -40,7 +48,7 @@ export function Layout({ children }: { children: ReactNode }) {
         />
       )}
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 border-x border-[var(--color-border)]">
+      <div className="relative mx-auto flex w-full max-w-7xl flex-1 border-x border-[var(--color-border)] gap-4">
         {/* Desktop sidebar */}
         <aside className="hidden w-56 shrink-0 border-r border-[var(--color-border)] bg-[var(--color-background)] lg:block overflow-y-auto sticky top-[6.25rem] h-[calc(100vh-6.25rem)]">
           <nav className="px-3 py-4 pb-8">
@@ -61,7 +69,7 @@ export function Layout({ children }: { children: ReactNode }) {
           </div>
         )}
 
-        <main className="min-w-0 flex-1 overflow-y-auto">
+        <main className="min-w-0 flex-1 overflow-y-auto border-l border-[var(--color-border)] bg-[var(--color-background)]">
           <div className="doc-content">
             {children}
             <PrevNextNav />
