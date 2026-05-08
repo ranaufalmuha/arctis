@@ -1,5 +1,6 @@
 export type DocNavGroup = {
   label: string;
+  href?: string;
   items: DocNavItem[];
   defaultOpen?: boolean;
 };
@@ -20,6 +21,7 @@ export type DocNavItem = {
 export const DOCS_NAV: DocNavGroup[] = [
   {
     label: "Introduction",
+    href: "/docs",
     defaultOpen: true,
     items: [
       { label: "Getting Started", href: "/docs" },
@@ -29,6 +31,7 @@ export const DOCS_NAV: DocNavGroup[] = [
   },
   {
     label: "Themes",
+    href: "/docs/themes",
     defaultOpen: true,
     items: [
       { label: "Prismatic Architecture", href: "/docs/themes/prismatic-architecture", badge: "DEFAULT", slug: "prismatic-architecture" },
@@ -38,6 +41,7 @@ export const DOCS_NAV: DocNavGroup[] = [
   },
   {
     label: "Add-ons",
+    href: "/docs/addons",
     defaultOpen: true,
     items: [
       { label: "GSAP", href: "/docs/addons/gsap", slug: "gsap" },
@@ -48,6 +52,7 @@ export const DOCS_NAV: DocNavGroup[] = [
   },
   {
     label: "Rules",
+    href: "/docs/rules",
     defaultOpen: true,
     items: [
       { label: "Zero Radius", href: "/docs/rules/zero-radius", slug: "zero-radius" },
@@ -55,6 +60,7 @@ export const DOCS_NAV: DocNavGroup[] = [
   },
   {
     label: "Agents",
+    href: "/docs/agents",
     defaultOpen: true,
     items: [
       { label: "Claude Code", href: "/docs/agents/claude-code", slug: "claude-code-agent" },

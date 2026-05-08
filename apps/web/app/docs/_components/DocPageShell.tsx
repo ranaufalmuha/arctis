@@ -13,7 +13,7 @@ export function DocPageShell({ children, href, title }: DocPageShellProps) {
 
   return (
     <div className="doc-content">
-      <div className="mb-8 border-b border-[var(--color-border)] px-4 pt-8 pb-8 md:px-8 lg:px-10">
+      <div className="mb-8 border-b border-[var(--color-border)] pt-8 pb-8">
         {title && (
           <h1 className="mb-2 font-mono text-3xl font-bold tracking-tight md:text-4xl text-[var(--color-foreground)]">
             {title}
@@ -28,6 +28,8 @@ export function DocPageShell({ children, href, title }: DocPageShellProps) {
       </div>
 
       {children}
+
+      <div className="pb-16" />
     </div>
   );
 }

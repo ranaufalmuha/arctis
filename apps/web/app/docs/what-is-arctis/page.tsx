@@ -4,7 +4,7 @@ import { CommandBlock } from "@/shared/components/ui/CommandBlock";
 
 export default function Page() {
   return (
-    <div className="px-4 py-8 md:px-8 lg:px-10">
+    <div className="py-8">
       <div className="mb-8 border-b border-[var(--color-border)] pb-8">
         <div className="mb-4 flex items-center gap-2">
           <Badge variant="accent">DOCS</Badge>

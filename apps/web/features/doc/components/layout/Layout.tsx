@@ -48,7 +48,7 @@ export function Layout({ children }: { children: ReactNode }) {
         />
       )}
 
-      <div className="relative mx-auto flex w-full max-w-7xl flex-1 border-x border-[var(--color-border)] gap-4">
+      <div className="relative mx-auto flex w-full max-w-7xl flex-1 border-x border-[var(--color-border)] gap-6">
         {/* Desktop sidebar */}
         <aside className="hidden w-56 shrink-0 border-r border-[var(--color-border)] bg-[var(--color-background)] lg:block overflow-y-auto sticky top-[6.25rem] h-[calc(100vh-6.25rem)]">
           <nav className="px-3 py-4 pb-8">
@@ -70,7 +70,7 @@ export function Layout({ children }: { children: ReactNode }) {
         )}
 
         <main className="min-w-0 flex-1 overflow-y-auto border-l border-[var(--color-border)] bg-[var(--color-background)]">
-          <div className="doc-content">
+          <div className="doc-content px-6 lg:px-10">
             {children}
             <PrevNextNav />
           </div>

@@ -4,7 +4,7 @@ import { CommandBlock } from "@/shared/components/ui/CommandBlock";
 
 export default function InstallationPage() {
   return (
-    <div className="px-4 py-8 md:px-8 lg:px-10">
+    <div className="py-8">
       <Section glowAccent>
         <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-accent)]">
           DOCUMENTATION

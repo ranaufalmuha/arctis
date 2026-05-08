@@ -14,7 +14,7 @@ export function SkillDocTemplate({ doc }: SkillDocTemplateProps) {
   return (
     <div>
       {/* Header */}
-      <div className="border-b border-[var(--color-border)] px-4 py-8 md:px-8 lg:px-10">
+      <div className="border-b border-[var(--color-border)] py-8">
         <h1 className="mb-2 font-mono text-3xl font-bold tracking-tight md:text-4xl text-[var(--color-foreground)]">
           {doc.title}
         </h1>
@@ -31,7 +31,7 @@ export function SkillDocTemplate({ doc }: SkillDocTemplateProps) {
             label: "Preview",
             content: (
               <div className="divide-y divide-[var(--color-border)]">
-                <div className="px-4 pt-10 pb-10 md:px-8 lg:px-10">
+                <div className="pt-10 pb-10">
                   <div
                     data-toc-label
                     className="mb-2 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]"
@@ -46,7 +46,7 @@ export function SkillDocTemplate({ doc }: SkillDocTemplateProps) {
                 <div className="py-10">
                   <div
                     data-toc-label
-                    className="px-4 pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)] md:px-8 lg:px-10">
+                    className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
                     Previews
                   </div>
                   <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 border-t border-l border-[var(--color-border)]">
@@ -56,7 +56,7 @@ export function SkillDocTemplate({ doc }: SkillDocTemplateProps) {
                   </div>
                 </div>
 
-                <div className="px-4 pt-10 md:px-8 lg:px-10">
+                <div className="pt-10">
                   <div
                     data-toc-label
                     className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
@@ -72,7 +72,7 @@ export function SkillDocTemplate({ doc }: SkillDocTemplateProps) {
             label: "Code",
             content: (
               <div className="divide-y divide-[var(--color-border)]">
-                <div className="px-4 pb-10 md:px-8 lg:px-10">
+                <div className="pb-10">
                   <div
                     data-toc-label
                     className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
@@ -84,7 +84,7 @@ export function SkillDocTemplate({ doc }: SkillDocTemplateProps) {
                   />
                 </div>
 
-                <div className="px-4 py-10 md:px-8 lg:px-10">
+                <div className="py-10">
                   <div
                     data-toc-label
                     className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
@@ -93,7 +93,7 @@ export function SkillDocTemplate({ doc }: SkillDocTemplateProps) {
                   <FolderTree structure={doc.folderStructure} />
                 </div>
 
-                <div className="px-4 pt-10 md:px-8 lg:px-10">
+                <div className="pt-10">
                   <div
                     data-toc-label
                     className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">

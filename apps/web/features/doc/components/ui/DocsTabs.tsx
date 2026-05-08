@@ -27,7 +27,7 @@ export function DocsTabs({ tabs, defaultTab }: DocsTabsProps) {
             role="tab"
             aria-selected={tab.key === active}
             onClick={() => setActive(tab.key)}
-            className={`border-r border-[var(--color-border)] px-6 py-2.5 font-mono text-xs uppercase tracking-[0.12em] transition-colors duration-[var(--transition-fast)] ${
+            className={`flex-1 border-r border-[var(--color-border)] px-6 py-2.5 font-mono text-xs uppercase tracking-[0.12em] text-center transition-colors duration-[var(--transition-fast)] last:border-r-0 ${
               tab.key === active
                 ? "text-[var(--color-foreground)] bg-[var(--color-panel)]"
                 : "text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-panel)]"
