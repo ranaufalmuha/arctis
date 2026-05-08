@@ -70,7 +70,7 @@ export function Layout({ children }: { children: ReactNode }) {
         )}
 
         <main className="min-w-0 flex-1 overflow-y-auto border-l border-[var(--color-border)] bg-[var(--color-background)]">
-          <div className="doc-content px-6 lg:px-10">
+          <div className="doc-content px-6 py-10 lg:px-10">
             {children}
             <PrevNextNav />
           </div>

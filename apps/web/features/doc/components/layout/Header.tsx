@@ -22,21 +22,6 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
-          <Link
-            href="/docs"
-            className="px-3 py-2 font-mono text-xs uppercase tracking-[0.1em] text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors duration-[var(--transition-fast)]"
-          >
-            Docs
-          </Link>
-          <Link
-            href="/docs/contribute/create-skill"
-            className="px-3 py-2 font-mono text-xs uppercase tracking-[0.1em] text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors duration-[var(--transition-fast)]"
-          >
-            Contribute
-          </Link>
-        </nav>
-
         <div className="ml-auto flex items-center gap-3">
           <SearchPalette />
           <Link

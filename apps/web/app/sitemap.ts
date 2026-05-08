@@ -20,11 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/",
     "/skills",
     "/docs",
-    "/docs/backgrounds/noise",
-    "/docs/backgrounds/stars",
-    "/docs/components/button",
-    "/docs/components/code-block",
-    "/docs/components/hero",
   ];
 
   const skillRoutes = skillSlugs.map((slug) => `/skills/${slug}`);

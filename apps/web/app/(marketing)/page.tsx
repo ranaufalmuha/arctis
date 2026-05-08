@@ -64,31 +64,6 @@ const benefitColumns = [
   },
 ];
 
-const whiteSectionVars = {
-  "--color-background": "#ffffff",
-  "--color-foreground": "#111827",
-  "--color-muted": "#6b7280",
-  "--color-muted-strong": "#4b5563",
-  "--color-border": "rgba(0,0,0,0.12)",
-  "--color-border-strong": "rgba(0,0,0,0.20)",
-  "--color-panel": "rgba(0,0,0,0.02)",
-  "--color-panel-strong": "rgba(0,0,0,0.04)",
-} as React.CSSProperties;
-
-function WhiteSection({ children }: { children: React.ReactNode }) {
-  return (
-    <section
-      className="bg-white"
-      style={whiteSectionVars}
-      data-section-theme="light"
-    >
-      <div className="mx-auto max-w-7xl border-x border-b border-gray-300">
-        {children}
-      </div>
-    </section>
-  );
-}
-
 function InstallTabs() {
   const [tab, setTab] = useState<"macos" | "windows">("macos");
 
