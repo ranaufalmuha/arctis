@@ -13,7 +13,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@arctis/typescript-config": "workspace:*",
     "typescript": "5.9.2"
   }
 }
