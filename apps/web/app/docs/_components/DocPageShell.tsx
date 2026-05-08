@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { getDocByHref } from "@/features/doc/data/nav";
+import { getDocByHref } from "@/features/docs/data/nav";
 import { CommandBlock } from "@/shared/components/ui/CommandBlock";
 
 type DocPageShellProps = {

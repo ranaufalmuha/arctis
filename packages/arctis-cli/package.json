@@ -1,0 +1,19 @@
+{
+  "name": "@arctis/cli",
+  "version": "0.0.1",
+  "private": true,
+  "description": "ARCTIS CLI — compose, install, and sync skills for AI coding agents",
+  "type": "module",
+  "bin": {
+    "arctis": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@arctis/typescript-config": "workspace:*",
+    "typescript": "5.9.2"
+  }
+}

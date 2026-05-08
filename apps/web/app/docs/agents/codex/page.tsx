@@ -1,9 +1,12 @@
-import { getSkillDoc } from "@/features/doc/data/skills";
-import { SkillDocTemplate } from "@/features/doc/components/ui/SkillDocTemplate";
-import { notFound } from "next/navigation";
+import Content from "./content";
+import { metadata } from "./metadata";
+import { SkillDocTemplate } from "@/features/docs/components/skill-page/SkillDocTemplate";
 
 export default function Page() {
-  const doc = getSkillDoc("codex-agent");
-  if (!doc) notFound();
-  return <SkillDocTemplate doc={doc} />;
+  return (
+    <SkillDocTemplate
+      metadata={metadata}
+      previewContent={<Content />}
+    />
+  );
 }
