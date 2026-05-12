@@ -15,6 +15,7 @@
   "include": [
     "next-env.d.ts",
     "app/**/*",
+    "content/**/*",
     "features/**/*",
     "shared/**/*",
     ".next/types/**/*.ts"

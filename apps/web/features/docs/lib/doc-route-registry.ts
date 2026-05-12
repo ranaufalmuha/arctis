@@ -51,18 +51,18 @@ type RouteEntry =
 export const docRouteRegistry: Record<string, RouteEntry> = {
   "/docs": {
     kind: "static",
-    content: () => import("@/app/docs/content/index/content"),
-    metadata: () => import("@/app/docs/content/index/metadata"),
+    content: () => import("@/content/docs/index/content"),
+    metadata: () => import("@/content/docs/index/metadata"),
   },
   "/docs/what-is-arctis": {
     kind: "static",
-    content: () => import("@/app/docs/content/what-is-arctis/content"),
-    metadata: () => import("@/app/docs/content/what-is-arctis/metadata"),
+    content: () => import("@/content/docs/what-is-arctis/content"),
+    metadata: () => import("@/content/docs/what-is-arctis/metadata"),
   },
   "/docs/skill-folder-structure": {
     kind: "static",
-    content: () => import("@/app/docs/content/skill-folder-structure/content"),
-    metadata: () => import("@/app/docs/content/skill-folder-structure/metadata"),
+    content: () => import("@/content/docs/skill-folder-structure/content"),
+    metadata: () => import("@/content/docs/skill-folder-structure/metadata"),
   },
 
   "/docs/themes": {
@@ -72,23 +72,23 @@ export const docRouteRegistry: Record<string, RouteEntry> = {
   "/docs/themes/prismatic-architecture": {
     kind: "skill",
     type: "theme",
-    content: () => import("@/app/docs/themes/prismatic-architecture/content"),
-    metadata: () => import("@/app/docs/themes/prismatic-architecture/metadata"),
-    sourcePath: "apps/web/app/docs/themes/prismatic-architecture/theme.md",
+    content: () => import("@/content/docs/themes/prismatic-architecture/content"),
+    metadata: () => import("@/content/docs/themes/prismatic-architecture/metadata"),
+    sourcePath: "apps/web/content/docs/themes/prismatic-architecture/theme.md",
   },
   "/docs/themes/brutalist-ui": {
     kind: "skill",
     type: "theme",
-    content: () => import("@/app/docs/themes/brutalist-ui/content"),
-    metadata: () => import("@/app/docs/themes/brutalist-ui/metadata"),
-    sourcePath: "apps/web/app/docs/themes/brutalist-ui/theme.md",
+    content: () => import("@/content/docs/themes/brutalist-ui/content"),
+    metadata: () => import("@/content/docs/themes/brutalist-ui/metadata"),
+    sourcePath: "apps/web/content/docs/themes/brutalist-ui/theme.md",
   },
   "/docs/themes/retro-web": {
     kind: "skill",
     type: "theme",
-    content: () => import("@/app/docs/themes/retro-web/content"),
-    metadata: () => import("@/app/docs/themes/retro-web/metadata"),
-    sourcePath: "apps/web/app/docs/themes/retro-web/theme.md",
+    content: () => import("@/content/docs/themes/retro-web/content"),
+    metadata: () => import("@/content/docs/themes/retro-web/metadata"),
+    sourcePath: "apps/web/content/docs/themes/retro-web/theme.md",
   },
 
   "/docs/addons": {
@@ -98,23 +98,23 @@ export const docRouteRegistry: Record<string, RouteEntry> = {
   "/docs/addons/gsap-scroll-reveal": {
     kind: "skill",
     type: "addon",
-    content: () => import("@/app/docs/addons/gsap-scroll-reveal/content"),
-    metadata: () => import("@/app/docs/addons/gsap-scroll-reveal/metadata"),
-    sourcePath: "apps/web/app/docs/addons/gsap-scroll-reveal/addon.md",
+    content: () => import("@/content/docs/addons/gsap-scroll-reveal/content"),
+    metadata: () => import("@/content/docs/addons/gsap-scroll-reveal/metadata"),
+    sourcePath: "apps/web/content/docs/addons/gsap-scroll-reveal/addon.md",
   },
   "/docs/addons/pixi-particle-field": {
     kind: "skill",
     type: "addon",
-    content: () => import("@/app/docs/addons/pixi-particle-field/content"),
-    metadata: () => import("@/app/docs/addons/pixi-particle-field/metadata"),
-    sourcePath: "apps/web/app/docs/addons/pixi-particle-field/addon.md",
+    content: () => import("@/content/docs/addons/pixi-particle-field/content"),
+    metadata: () => import("@/content/docs/addons/pixi-particle-field/metadata"),
+    sourcePath: "apps/web/content/docs/addons/pixi-particle-field/addon.md",
   },
   "/docs/addons/custom-cursor": {
     kind: "skill",
     type: "addon",
-    content: () => import("@/app/docs/addons/custom-cursor/content"),
-    metadata: () => import("@/app/docs/addons/custom-cursor/metadata"),
-    sourcePath: "apps/web/app/docs/addons/custom-cursor/addon.md",
+    content: () => import("@/content/docs/addons/custom-cursor/content"),
+    metadata: () => import("@/content/docs/addons/custom-cursor/metadata"),
+    sourcePath: "apps/web/content/docs/addons/custom-cursor/addon.md",
   },
 
   "/docs/rules": {
@@ -124,30 +124,30 @@ export const docRouteRegistry: Record<string, RouteEntry> = {
   "/docs/rules/zero-radius": {
     kind: "skill",
     type: "rule",
-    content: () => import("@/app/docs/rules/zero-radius/content"),
-    metadata: () => import("@/app/docs/rules/zero-radius/metadata"),
-    sourcePath: "apps/web/app/docs/rules/zero-radius/rule.md",
+    content: () => import("@/content/docs/rules/zero-radius/content"),
+    metadata: () => import("@/content/docs/rules/zero-radius/metadata"),
+    sourcePath: "apps/web/content/docs/rules/zero-radius/rule.md",
   },
   "/docs/rules/hairline-borders": {
     kind: "skill",
     type: "rule",
-    content: () => import("@/app/docs/rules/hairline-borders/content"),
-    metadata: () => import("@/app/docs/rules/hairline-borders/metadata"),
-    sourcePath: "apps/web/app/docs/rules/hairline-borders/rule.md",
+    content: () => import("@/content/docs/rules/hairline-borders/content"),
+    metadata: () => import("@/content/docs/rules/hairline-borders/metadata"),
+    sourcePath: "apps/web/content/docs/rules/hairline-borders/rule.md",
   },
   "/docs/rules/strict-grid": {
     kind: "skill",
     type: "rule",
-    content: () => import("@/app/docs/rules/strict-grid/content"),
-    metadata: () => import("@/app/docs/rules/strict-grid/metadata"),
-    sourcePath: "apps/web/app/docs/rules/strict-grid/rule.md",
+    content: () => import("@/content/docs/rules/strict-grid/content"),
+    metadata: () => import("@/content/docs/rules/strict-grid/metadata"),
+    sourcePath: "apps/web/content/docs/rules/strict-grid/rule.md",
   },
   "/docs/rules/restrained-accent": {
     kind: "skill",
     type: "rule",
-    content: () => import("@/app/docs/rules/restrained-accent/content"),
-    metadata: () => import("@/app/docs/rules/restrained-accent/metadata"),
-    sourcePath: "apps/web/app/docs/rules/restrained-accent/rule.md",
+    content: () => import("@/content/docs/rules/restrained-accent/content"),
+    metadata: () => import("@/content/docs/rules/restrained-accent/metadata"),
+    sourcePath: "apps/web/content/docs/rules/restrained-accent/rule.md",
   },
 
   "/docs/agents": {
@@ -156,18 +156,18 @@ export const docRouteRegistry: Record<string, RouteEntry> = {
   },
   "/docs/agents/claude-code": {
     kind: "agent",
-    content: () => import("@/app/docs/agents/claude-code/content"),
-    metadata: () => import("@/app/docs/agents/claude-code/metadata"),
+    content: () => import("@/content/docs/agents/claude-code/content"),
+    metadata: () => import("@/content/docs/agents/claude-code/metadata"),
   },
   "/docs/agents/opencode": {
     kind: "agent",
-    content: () => import("@/app/docs/agents/opencode/content"),
-    metadata: () => import("@/app/docs/agents/opencode/metadata"),
+    content: () => import("@/content/docs/agents/opencode/content"),
+    metadata: () => import("@/content/docs/agents/opencode/metadata"),
   },
   "/docs/agents/codex": {
     kind: "agent",
-    content: () => import("@/app/docs/agents/codex/content"),
-    metadata: () => import("@/app/docs/agents/codex/metadata"),
+    content: () => import("@/content/docs/agents/codex/content"),
+    metadata: () => import("@/content/docs/agents/codex/metadata"),
   },
 };
 

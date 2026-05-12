@@ -64,6 +64,7 @@ export default [
     {
         files: [
             "app/**/*.{ts,tsx,js,jsx}",
+            "content/**/*.{ts,tsx,js,jsx}",
             "features/**/*.{ts,tsx,js,jsx}",
             "shared/**/*.{ts,tsx,js,jsx}"
         ],
@@ -75,6 +76,10 @@ export default [
                 {
                     type: "app",
                     pattern: "app/**",
+                },
+                {
+                    type: "content",
+                    pattern: "content/**",
                 },
                 {
                     type: "feature",
@@ -95,18 +100,23 @@ export default [
                     rules: [
                         {
                             from: ["app"],
-                            allow: ["app", "shared", "feature"],
+                            allow: ["app", "shared", "feature", "content"],
                         },
                         {
                             from: ["feature"],
                             allow: [
                                 "shared",
+                                "content",
                                 ["feature", { featureName: "${from.featureName}" }]
                             ],
                         },
                         {
                             from: ["shared"],
                             allow: ["shared"],
+                        },
+                        {
+                            from: ["content"],
+                            allow: ["content", "shared"],
                         },
                     ],
                 },

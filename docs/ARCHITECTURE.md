@@ -1,7 +1,4 @@
-ARCTIS MONOREPO – STRUCTURE NOTES
-=================================
-pnpm add prism-react-renderer --filter @arctis/ui
-=================================
+# ARCTIS Monorepo — Architecture & Structure Notes
 
 
 Tujuan:
