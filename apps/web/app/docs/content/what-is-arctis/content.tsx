@@ -2,7 +2,7 @@ import { Section } from "@/shared/components/ui/Section";
 import { Badge } from "@/shared/components/ui/Badge";
 import { CommandBlock } from "@/shared/components/ui/CommandBlock";
 
-export default function Page() {
+export default function Content() {
   return (
     <div className="py-8">
       <div className="mb-8 border-b border-[var(--color-border)] pb-8">
@@ -14,7 +14,7 @@ export default function Page() {
           What is ARCTIS?
         </h1>
         <p className="font-mono text-base leading-relaxed text-[var(--color-muted)]">
-          ARCTIS is an open-source skill registry for AI coding agents. It packages design styles, frontend patterns, and project workflows into reusable SKILL.md files for Claude Code, OpenCode, and Codex.
+          ARCTIS is an open-source skill registry for AI coding agents. It packages design styles, frontend patterns, and project workflows into a single composed SKILL.md for Claude Code, OpenCode, and Codex.
         </p>
       </div>
       <Section>

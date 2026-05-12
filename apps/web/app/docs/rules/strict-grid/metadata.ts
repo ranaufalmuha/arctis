@@ -20,8 +20,10 @@ export const metadata = {
   allInstallCommand: "npx arctis add strict-grid --all",
   folderStructure: [
     { name: "strict-grid/", type: "folder" as const, children: [
-      { name: "SKILL.md", type: "file" as const },
-      { name: "arctis.json", type: "file" as const },
+      { name: "page.tsx", type: "file" as const },
+      { name: "content.mdx", type: "file" as const },
+      { name: "rule.md", type: "file" as const },
+      { name: "metadata.ts", type: "file" as const },
     ]},
   ],
   skillMarkdown: "# Strict Grid\n\n## Core Rule\n- Use a strict 8px modular grid for all spacing.\n- All margins, paddings, and gaps must be multiples of 8px.\n- Use 8px, 16px, 24px, 32px, 48px, 64px spacing scale.\n- Never use arbitrary spacing values outside the 8px grid.\n\n## When to apply\n- Always. This is a global layout constraint.",

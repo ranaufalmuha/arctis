@@ -24,13 +24,10 @@ export const metadata = {
   allInstallCommand: "npx arctis add prismatic-architecture --all",
   folderStructure: [
     { name: "prismatic-architecture/", type: "folder" as const, children: [
-      { name: "SKILL.md", type: "file" as const },
-      { name: "arctis.json", type: "file" as const },
-      { name: "examples/", type: "folder" as const, children: [
-        { name: "landing-page.md", type: "file" as const },
-        { name: "docs-layout.md", type: "file" as const },
-        { name: "registry-grid.md", type: "file" as const },
-      ]},
+      { name: "page.tsx", type: "file" as const },
+      { name: "content.mdx", type: "file" as const },
+      { name: "theme.md", type: "file" as const },
+      { name: "metadata.ts", type: "file" as const },
       { name: "references/", type: "folder" as const, children: [
         { name: "visual-rules.md", type: "file" as const },
         { name: "typography.md", type: "file" as const },

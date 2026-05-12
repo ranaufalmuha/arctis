@@ -12,8 +12,11 @@ export async function composeArctisSkill(
   void outputDir;
   console.log("[arctis compose]", composition);
   // Future:
-  // 1. Read each skill's SKILL.md and merge into one.
-  // 2. Collect references/ files from each skill.
-  // 3. Write to outputDir/{theme, addons, rules}/.
-  // 4. Generate a merged SKILL.md with section headers.
+  // 1. Read the selected theme from theme.md.
+  // 2. Read selected add-ons from addon.md.
+  // 3. Read selected rules from rule.md.
+  // 4. Generate a merged parent SKILL.md.
+  // 5. Copy theme source into references/theme.md.
+  // 6. Copy addon sources into references/addons/<slug>.md.
+  // 7. Copy rule sources into references/rules/<slug>.md.
 }

@@ -20,8 +20,10 @@ export const metadata = {
   allInstallCommand: "npx arctis add hairline-borders --all",
   folderStructure: [
     { name: "hairline-borders/", type: "folder" as const, children: [
-      { name: "SKILL.md", type: "file" as const },
-      { name: "arctis.json", type: "file" as const },
+      { name: "page.tsx", type: "file" as const },
+      { name: "content.mdx", type: "file" as const },
+      { name: "rule.md", type: "file" as const },
+      { name: "metadata.ts", type: "file" as const },
     ]},
   ],
   skillMarkdown: "# Hairline Borders\n\n## Core Rule\n- Use 1px solid borders on all containers, cards, panels, and dividers.\n- Use rgba(255,255,255,0.15) for light borders on dark backgrounds.\n- Use rgba(0,0,0,0.12) for light borders on light backgrounds.\n- Never use borders thicker than 1px for layout elements.\n\n## When to apply\n- Always. This is a global visual constraint.",

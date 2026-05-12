@@ -23,8 +23,11 @@ export const metadata = {
   allInstallCommand: "npx arctis add gsap-scroll-reveal --all",
   folderStructure: [
     { name: "gsap-scroll-reveal/", type: "folder" as const, children: [
-      { name: "SKILL.md", type: "file" as const },
-      { name: "arctis.json", type: "file" as const },
+      { name: "page.tsx", type: "file" as const },
+      { name: "content.mdx", type: "file" as const },
+      { name: "addon.md", type: "file" as const },
+      { name: "metadata.ts", type: "file" as const },
+      { name: "references/", type: "folder" as const, children: [] },
       { name: "snippets/", type: "folder" as const, children: [
         { name: "scroll-reveal.tsx", type: "file" as const },
         { name: "stagger-list.tsx", type: "file" as const },

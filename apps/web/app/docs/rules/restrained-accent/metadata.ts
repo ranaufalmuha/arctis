@@ -21,8 +21,10 @@ export const metadata = {
   allInstallCommand: "npx arctis add restrained-accent --all",
   folderStructure: [
     { name: "restrained-accent/", type: "folder" as const, children: [
-      { name: "SKILL.md", type: "file" as const },
-      { name: "arctis.json", type: "file" as const },
+      { name: "page.tsx", type: "file" as const },
+      { name: "content.mdx", type: "file" as const },
+      { name: "rule.md", type: "file" as const },
+      { name: "metadata.ts", type: "file" as const },
     ]},
   ],
   skillMarkdown: "# Restrained Accent\n\n## Core Rule\n- Use a single accent color across the entire interface.\n- Limit accent usage to 5-10% of total surface area.\n- Apply accent only to CTAs, links, and key highlights.\n- Never use accent for decorative or background elements.\n- Default accent: #ffeb50 on dark, #f59e0b on light.\n\n## When to apply\n- Always. This is a global color constraint.",

@@ -21,12 +21,26 @@ export type SkillDocMetadata = {
 type SkillDocTemplateProps = {
   metadata: SkillDocMetadata;
   previewContent: ReactNode;
+  sourceMarkdown?: string;
+  sourceFilename?: string;
+};
+
+const SKILL_FILE_LABEL: Record<string, string> = {
+  theme: "theme.md",
+  addon: "addon.md",
+  rule: "rule.md",
+  agent: "SKILL.md",
+  guide: "SKILL.md",
 };
 
 export function SkillDocTemplate({
   metadata: doc,
   previewContent,
+  sourceMarkdown,
+  sourceFilename,
 }: SkillDocTemplateProps) {
+  const fileLabel = sourceFilename ?? SKILL_FILE_LABEL[doc.type] ?? "SKILL.md";
+  const markdownCode = sourceMarkdown ?? doc.skillMarkdown;
   return (
     <div>
       <div className="border-b border-[var(--color-border)] py-8">
@@ -117,9 +131,9 @@ export function SkillDocTemplate({
                   <div
                     data-toc-label
                     className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
-                    SKILL.md
+                    {fileLabel}
                   </div>
-                  <SkillMarkdownViewer code={doc.skillMarkdown} />
+                  <SkillMarkdownViewer code={markdownCode} />
                 </div>
               </div>
             ),

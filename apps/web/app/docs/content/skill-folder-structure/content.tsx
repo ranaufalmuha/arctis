@@ -2,18 +2,9 @@ import { Section } from "@/shared/components/ui/Section";
 import { HairlineDivider } from "@/shared/components/ui/HairlineDivider";
 
 const AGENTS = [
-  {
-    name: "Claude Code",
-    path: ".claude/skills/arctis/",
-  },
-  {
-    name: "OpenCode",
-    path: ".opencode/skills/arctis/",
-  },
-  {
-    name: "Codex",
-    path: ".agents/skills/arctis/",
-  },
+  { name: "Claude Code", path: ".claude/skills/arctis/" },
+  { name: "OpenCode", path: ".opencode/skills/arctis/" },
+  { name: "Codex", path: ".agents/skills/arctis/" },
 ];
 
 const FOLDER_TREE = `my-project/
@@ -43,7 +34,7 @@ const FOLDER_TREE = `my-project/
         └── arctis/
             ├── ... (same structure)`;
 
-export default function Page() {
+export default function Content() {
   return (
     <div className="py-8">
       <Section glowAccent>
@@ -61,7 +52,6 @@ export default function Page() {
 
       <HairlineDivider />
 
-      {/* Section 1 — Overview */}
       <Section>
         <h2 className="mb-4 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Overview
@@ -84,7 +74,6 @@ export default function Page() {
 
       <HairlineDivider />
 
-      {/* Section 2 — Agent Output Paths */}
       <Section>
         <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Agent Output Paths
@@ -112,7 +101,6 @@ export default function Page() {
 
       <HairlineDivider />
 
-      {/* Section 3 — Full Folder Structure */}
       <Section>
         <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Full Folder Structure

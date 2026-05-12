@@ -20,8 +20,10 @@ export const metadata = {
   allInstallCommand: "npx arctis add zero-radius --all",
   folderStructure: [
     { name: "zero-radius/", type: "folder" as const, children: [
-      { name: "SKILL.md", type: "file" as const },
-      { name: "arctis.json", type: "file" as const },
+      { name: "page.tsx", type: "file" as const },
+      { name: "content.mdx", type: "file" as const },
+      { name: "rule.md", type: "file" as const },
+      { name: "metadata.ts", type: "file" as const },
     ]},
   ],
   skillMarkdown: "# Zero Radius\n\n## Core Rule\n- Set border-radius: 0 on all elements globally.\n- Use * { border-radius: 0 !important; } as base reset.\n- Override only when a third-party component requires it.\n\n## When to apply\n- Always. This is a global visual constraint.",

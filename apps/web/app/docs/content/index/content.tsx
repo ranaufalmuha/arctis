@@ -2,7 +2,7 @@ import { Badge } from "@/shared/components/ui/Badge";
 import { CommandBlock } from "@/shared/components/ui/CommandBlock";
 import Link from "next/link";
 
-export default function Page() {
+export default function Content() {
   return (
     <div>
       <div className="mb-8 border-b border-[var(--color-border)] pb-8">
@@ -52,7 +52,7 @@ export default function Page() {
         </p>
       </div>
 
-    <div className="py-8">
+      <div className="py-8">
         <h2 className="mb-3 font-mono text-xl font-semibold tracking-tight text-[var(--color-foreground)]">4. Start Building</h2>
         <p className="font-mono text-sm leading-relaxed text-[var(--color-muted)]">
           Your agent now references the installed skill during code generation. Prompt your
