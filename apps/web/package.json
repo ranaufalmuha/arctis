@@ -11,7 +11,6 @@
     "check-types": "next typegen && tsc --noEmit"
   },
   "dependencies": {
-    "@arctis/ui": "workspace:*",
     "@tailwindcss/postcss": "^4.1.17",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
@@ -20,6 +19,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.6.0",
+    "shiki": "^4.0.2",
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {

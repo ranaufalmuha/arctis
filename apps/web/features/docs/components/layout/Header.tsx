@@ -17,7 +17,7 @@ export function Header() {
             height={28}
             className="h-5 w-auto"
           />
-          <span className="border border-[var(--color-border-accent)] px-1.5 py-0.5 text-[9px] uppercase tracking-[0.15em] text-[var(--color-accent)]">
+          <span className="border border-[var(--color-border-accent)] px-1.5 py-0.5 font-mono text-label uppercase tracking-[0.15em] text-[var(--color-accent)]">
             DOCS
           </span>
         </Link>

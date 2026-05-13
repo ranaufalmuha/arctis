@@ -15,7 +15,7 @@ function Node({ node, depth = 0 }: { node: FolderNode; depth: number }) {
         className="flex items-center gap-1.5 py-0.5 font-mono text-xs"
         style={{ paddingLeft: `${depth * 1.25}rem` }}
       >
-        <span className="text-[10px] text-[var(--color-muted-strong)]">
+        <span className="text-overline text-[var(--color-muted-strong)]">
           {node.type === "folder" ? "▸" : " "}
         </span>
         <span

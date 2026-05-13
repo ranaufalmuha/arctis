@@ -66,7 +66,6 @@ content  → content, shared
 
 ```ts
 @/*           → apps/web/*
-@arctis/ui    → packages/ui/src/index.ts
 ```
 
 ---
@@ -114,18 +113,13 @@ Update `features/docs/data/nav.ts` to add the new page to the sidebar navigation
 
 ### `packages/ui` (@arctis/ui)
 
-- **Framework-agnostic** — React + className only. Never import from Next.js, never use server-only APIs.
-- All public exports go through `src/index.ts` → `src/components/__index__.ts` (barrel pattern).
-- Use a `lib/` directory for internal utilities (e.g., `gsap.ts` for GSAP wrapper).
-- Component file naming: `PascalCase.tsx`
-- Every new component **must** be re-exported from `__index__.ts`.
+- **Reserved for future use** — currently contains no components.
+- Do NOT add UI components here; all shared components live in `apps/web/shared/components/ui/`.
 
 ### `apps/web` (the website)
 
-- Uses `@arctis/ui` for shared components (import from `"@arctis/ui"`).
-- Site-specific components go in `shared/components/ui/`.
-- Layout components for features go in their respective feature folder.
-- Route groups use `(groupName)` syntax (e.g., `(marketing)/`).
+- Site-specific and shared components go in `shared/components/ui/` (e.g., `CodeBlock.tsx`, `Badge.tsx`).
+- Import from `@/shared/components/ui/ComponentName`.
 
 ---
 

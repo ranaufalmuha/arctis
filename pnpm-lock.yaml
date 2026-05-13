@@ -20,9 +20,6 @@ importers:
 
   apps/web:
     dependencies:
-      '@arctis/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       '@tailwindcss/postcss':
         specifier: ^4.1.17
         version: 4.1.17
@@ -47,6 +44,9 @@ importers:
       react-icons:
         specifier: ^5.6.0
         version: 5.6.0(react@19.2.0)
+      shiki:
+        specifier: ^4.0.2
+        version: 4.0.2
       tailwindcss:
         specifier: ^4.1.17
         version: 4.1.17

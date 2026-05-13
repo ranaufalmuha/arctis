@@ -23,6 +23,14 @@
   --font-mono: var(--font-geist-mono), "SF Mono", "Fira Code", monospace;
   --transition-fast: 150ms;
   --transition-base: 200ms;
+  --spacing-xs: 0.25rem;
+  --spacing-compact: 0.5rem;
+  --spacing-inline: 0.75rem;
+  --spacing-block: 1rem;
+  --font-size-micro: 0.5rem;
+  --font-size-label: 0.5625rem;
+  --font-size-overline: 0.625rem;
+  --font-size-caption: 0.6875rem;
   --z-background: -10;
   --z-base: 0;
   --z-above: 10;
@@ -47,6 +55,14 @@
   --color-glow-indigo: var(--color-glow-indigo);
   --color-glow-teal: var(--color-glow-teal);
   --radius-none: var(--radius-none);
+  --spacing-xs: var(--spacing-xs);
+  --spacing-compact: var(--spacing-compact);
+  --spacing-inline: var(--spacing-inline);
+  --spacing-block: var(--spacing-block);
+  --font-size-micro: var(--font-size-micro);
+  --font-size-label: var(--font-size-label);
+  --font-size-overline: var(--font-size-overline);
+  --font-size-caption: var(--font-size-caption);
 }
 
 /* ===== Global Reset ===== */

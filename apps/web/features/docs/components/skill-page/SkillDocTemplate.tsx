@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { DocsTabs } from "./DocsTabs";
 import { PreviewCard } from "./PreviewCard";
 import { FeatureGrid } from "./FeatureGrid";
-import { InstallCommands } from "./InstallCommands";
+import { TabsCodeBlock } from "@/shared/components/ui/TabsCodeBlock";
 import { FolderTree } from "./FolderTree";
 import { SkillMarkdownViewer } from "./SkillMarkdownViewer";
 
@@ -62,7 +62,7 @@ export function SkillDocTemplate({
                 <div className="pt-10 pb-10">
                   <div
                     data-toc-label
-                    className="mb-2 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]"
+                    className="mb-2 font-mono text-overline uppercase tracking-[0.15em] text-[var(--color-muted-strong)]"
                   >
                     {doc.type === "theme" ? "Design Direction" : "Overview"}
                   </div>
@@ -75,7 +75,7 @@ export function SkillDocTemplate({
                   <div className="py-10">
                     <div
                       data-toc-label
-                      className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+                      className="pb-3 font-mono text-overline uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
                       Previews
                     </div>
                     <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 border-t border-l border-[var(--color-border)]">
@@ -90,7 +90,7 @@ export function SkillDocTemplate({
                   <div className="pt-10">
                     <div
                       data-toc-label
-                      className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+                      className="pb-3 font-mono text-overline uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
                       Features
                     </div>
                     <FeatureGrid features={doc.features} />
@@ -107,12 +107,20 @@ export function SkillDocTemplate({
                 <div className="pb-10">
                   <div
                     data-toc-label
-                    className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+                    className="pb-3 font-mono text-overline uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
                     Install
                   </div>
-                  <InstallCommands
-                    commands={doc.installCommands}
-                    allCommand={doc.allInstallCommand}
+                  <TabsCodeBlock
+                    lang="bash"
+                    tabs={[
+                      { key: "all", label: "All", command: doc.allInstallCommand },
+                      ...doc.installCommands.map((c) => ({
+                        key: c.agent.toLowerCase().replace(/\s+/, "-"),
+                        label: c.agent,
+                        command: c.command,
+                      })),
+                    ]}
+                    defaultTab="all"
                   />
                 </div>
 
@@ -120,7 +128,7 @@ export function SkillDocTemplate({
                   <div className="py-10">
                     <div
                       data-toc-label
-                      className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+                      className="pb-3 font-mono text-overline uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
                       Folder Structure
                     </div>
                     <FolderTree structure={doc.folderStructure} />
@@ -130,7 +138,7 @@ export function SkillDocTemplate({
                 <div className="pt-10">
                   <div
                     data-toc-label
-                    className="pb-3 font-mono text-[10px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+                    className="pb-3 font-mono text-overline uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
                     {fileLabel}
                   </div>
                   <SkillMarkdownViewer code={markdownCode} />

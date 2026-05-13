@@ -17,14 +17,14 @@ export function PreviewCard({ title, caption, tags }: PreviewCardProps) {
       <div className="mb-1 font-mono text-sm font-semibold text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors duration-[var(--transition-fast)]">
         {title}
       </div>
-      <p className="mb-3 font-mono text-[11px] leading-relaxed text-[var(--color-muted)]">
+      <p className="mb-3 font-mono text-caption leading-relaxed text-[var(--color-muted)]">
         {caption}
       </p>
       <div className="flex flex-wrap gap-1">
         {tags.map((tag) => (
           <span
             key={tag}
-            className="border border-[var(--color-border)] px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-[var(--color-muted-strong)]"
+            className="border border-[var(--color-border)] px-1.5 py-0.5 font-mono text-label uppercase tracking-[0.1em] text-[var(--color-muted-strong)]"
           >
             {tag}
           </span>

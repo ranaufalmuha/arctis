@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LuCheck, LuPaintbrush, LuPlus, LuListChecks } from "react-icons/lu";
-import { CodeBlock } from "@arctis/ui";
+import { TabsCodeBlock } from "@/shared/components/ui/TabsCodeBlock";
 
 const brands = [
   { name: "Anime.js", src: "/assets/brands/animejs.svg" },
@@ -65,41 +65,23 @@ const benefitColumns = [
 ];
 
 function InstallTabs() {
-  const [tab, setTab] = useState<"macos" | "windows">("macos");
-
-  const commands = {
-    macos: "curl -fsSL https://arctis.dev | bash",
-    windows: "irm https://arctis.dev/ps1 | iex",
-  };
-
   return (
-    <div className="mx-auto w-full max-w-lg">
-      <div className="flex gap-0.5">
-        <button
-          onClick={() => setTab("macos")}
-          className={`relative px-3 py-1.5 font-mono text-xs tracking-wide transition-colors ${
-            tab === "macos"
-              ? "text-foreground border border-border border-b-transparent bg-panel"
-              : "text-muted border border-transparent hover:text-foreground"
-          }`}
-        >
-          macOS / Linux
-        </button>
-        <button
-          onClick={() => setTab("windows")}
-          className={`relative px-3 py-1.5 font-mono text-xs tracking-wide transition-colors ${
-            tab === "windows"
-              ? "text-foreground border border-border border-b-transparent bg-panel"
-              : "text-muted border border-transparent hover:text-foreground"
-          }`}
-        >
-          Windows
-        </button>
-      </div>
-      <div className="-mt-[1px]">
-        <CodeBlock code={commands[tab]} lang="bash" />
-      </div>
-    </div>
+    <TabsCodeBlock
+      className="mx-auto w-full max-w-lg"
+      tabs={[
+        {
+          key: "macos",
+          label: "macOS / Linux",
+          command: "curl -fsSL https://arctis.dev | bash",
+        },
+        {
+          key: "windows",
+          label: "Windows",
+          command: "irm https://arctis.dev/ps1 | iex",
+        },
+      ]}
+      defaultTab="macos"
+    />
   );
 }
 
@@ -169,7 +151,7 @@ export default function Home() {
 
           <div className="relative px-6 py-24 lg:px-10 lg:py-32">
             <div className="mx-auto max-w-2xl text-center flex flex-col gap-6">
-              <h1 className="mb-4 font-mono text-3xl font-bold leading-[1.15] tracking-tight md:text-4xl lg:text-5xl text-balance">
+              <h1 className="mb-4 leading-[1.15] tracking-tight text-4xl sm:text-5xl md:text-6xl text-balance font-semibold">
                 <span className="inline-block">Give your coding agent</span>
                 <br />
                 <span className="inline-block">better taste.</span>
@@ -251,15 +233,15 @@ export default function Home() {
                     : ""
                 }
               >
-                <div className="px-8 pt-8">
-                  <div className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-strong">
+                <div className="px-6 pt-24 lg:px-8">
+                  <div className="mb-4 font-mono text-overline uppercase tracking-[0.2em] text-muted-strong">
                     {col.side === "developers"
-                      ? "WHY DEVELOPERS CHOOSE ARCTIS"
+                      ? "WHY DEVELOPERS CHOOSE"
                       : "HOW AGENTS BENEFIT"}
                   </div>
-                  <h3 className="mb-6 font-mono text-2xl font-semibold tracking-tight md:text-3xl">
+                  <h2 className="mb-6 text-3xl sm:text-4xl md:text-5xl">
                     {col.title}
-                  </h3>
+                  </h2>
                 </div>
                 <div className="divide-y divide-border border-t border-border">
                   {col.items.map((item) => (
@@ -281,12 +263,12 @@ export default function Home() {
 
         {/* ===== 5. SKILL CATEGORIES ===== */}
         <section className="border-b border-border">
-          <div className="px-6 pt-20 pb-12 lg:px-10">
+          <div className="px-6 pt-24 pb-12 lg:px-10">
             <div className="text-center">
-              <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+              <div className="mb-3 font-mono text-overline uppercase tracking-[0.2em] text-muted">
                 SKILL CATEGORIES
               </div>
-              <h2 className="mb-4 font-mono text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="mb-4 tracking-tight text-3xl sm:text-4xl md:text-5xl">
                 Built for agent-native development.
               </h2>
               <p className="text-base text-muted">
@@ -300,7 +282,7 @@ export default function Home() {
               <Link
                 key={cat.title}
                 href={`/docs/${cat.slug}`}
-                className="group block p-6 transition-colors duration-(--transition-fast) hover:bg-panel-strong lg:px-10"
+                className="group aspect-video block p-6 transition-colors duration-(--transition-fast) hover:bg-panel-strong lg:px-10"
               >
                 <div className="mb-3">
                   <h3 className="flex items-center gap-2 font-mono text-lg font-semibold text-foreground transition-colors duration-(--transition-fast)">
@@ -311,26 +293,6 @@ export default function Home() {
                 <p className="text-sm leading-relaxed text-muted">{cat.desc}</p>
               </Link>
             ))}
-          </div>
-        </section>
-      </div>
-
-      {/* ===== DARK SECTIONS ===== */}
-      <div className="mx-auto max-w-7xl border-x border-border">
-        {/* ===== 6. FINAL CTA ===== */}
-        <section className="relative border-b border-border h-[200px] overflow-hidden flex items-center justify-center">
-          <div
-            className="full-bleed absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/assets/background.jpg')" }}
-          />
-          <div className="relative text-center px-6">
-            <Image
-              src="/logo/logo-with-bg.svg"
-              alt="ARCTIS"
-              width={60}
-              height={60}
-              className="mx-auto"
-            />
           </div>
         </section>
       </div>

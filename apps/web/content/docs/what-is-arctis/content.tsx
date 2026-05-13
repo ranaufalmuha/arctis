@@ -1,6 +1,6 @@
 import { Section } from "@/shared/components/ui/Section";
 import { Badge } from "@/shared/components/ui/Badge";
-import { CommandBlock } from "@/shared/components/ui/CommandBlock";
+import { CodeBlock } from "@/shared/components/ui/CodeBlock";
 
 export default function Content() {
   return (
@@ -26,7 +26,7 @@ export default function Content() {
         <p className="mb-4 font-mono text-sm leading-relaxed text-[var(--color-muted)]">
           ARCTIS skills are structured, portable instruction packages. Install with one command and your agent immediately produces code with consistent design taste.
         </p>
-        <CommandBlock command="npx arctis add prismatic-architecture --all" />
+        <CodeBlock code="npx arctis add prismatic-architecture --all" lang="bash" />
       </Section>
     </div>
   );

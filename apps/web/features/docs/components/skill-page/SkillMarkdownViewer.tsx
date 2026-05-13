@@ -1,6 +1,6 @@
 "use client";
 
-import { CodeBlock } from "@arctis/ui";
+import { CodeBlock } from "@/shared/components/ui/CodeBlock";
 
 type SkillMarkdownViewerProps = {
   code: string;

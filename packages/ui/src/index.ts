@@ -1,1 +1,1 @@
-export * from "./components/__index__";
+export {};

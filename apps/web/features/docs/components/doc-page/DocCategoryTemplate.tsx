@@ -40,14 +40,14 @@ export function DocCategoryTemplate({
               {item.badges?.map((badge) => (
                 <span
                   key={badge}
-                  className="border border-[var(--color-border-accent)] px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-[var(--color-accent)]"
+                  className="border border-[var(--color-border-accent)] px-1.5 py-0.5 font-mono text-label uppercase tracking-[0.1em] text-[var(--color-accent)]"
                 >
                   {badge}
                 </span>
               ))}
             </div>
             {item.description && (
-              <p className="font-mono text-[11px] text-[var(--color-muted)]">
+              <p className="font-mono text-caption text-[var(--color-muted)]">
                 {item.description}
               </p>
             )}

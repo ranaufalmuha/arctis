@@ -21,10 +21,26 @@ const navItems: NavItem[] = [
   {
     label: "Docs",
     children: [
-      { label: "What is ARCTIS?", href: "/docs", description: "Platform overview" },
-      { label: "SKILL.md Format", href: "/docs/skill-md", description: "Package anatomy" },
-      { label: "Installation", href: "/docs/installation", description: "CLI setup guide" },
-      { label: "Creating Skills", href: "/docs/creating", description: "Build your own" },
+      {
+        label: "What is ARCTIS?",
+        href: "/docs",
+        description: "Platform overview",
+      },
+      {
+        label: "SKILL.md Format",
+        href: "/docs/skill-md",
+        description: "Package anatomy",
+      },
+      {
+        label: "Installation",
+        href: "/docs/installation",
+        description: "CLI setup guide",
+      },
+      {
+        label: "Creating Skills",
+        href: "/docs/creating",
+        description: "Build your own",
+      },
     ],
   },
 ];
@@ -55,21 +71,25 @@ export function Header() {
       document.body.style.overflow = "";
       setMobileExpanded(null);
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
   useEffect(() => {
-    const lightSections = document.querySelectorAll("[data-section-theme=\"light\"]");
+    const lightSections = document.querySelectorAll(
+      '[data-section-theme="light"]',
+    );
     if (lightSections.length === 0) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries.some(
-          (e) => e.isIntersecting && e.boundingClientRect.top <= 80
+          (e) => e.isIntersecting && e.boundingClientRect.top <= 80,
         );
         setIsLight(visible);
       },
-      { rootMargin: "-64px 0px 0px 0px", threshold: 0 }
+      { rootMargin: "-64px 0px 0px 0px", threshold: 0 },
     );
 
     lightSections.forEach((el) => observer.observe(el));
@@ -86,7 +106,7 @@ export function Header() {
         }`}
         style={
           isLight
-            ? {
+            ? ({
                 "--color-foreground": "#111827",
                 "--color-muted": "#6b7280",
                 "--color-muted-strong": "#4b5563",
@@ -95,28 +115,36 @@ export function Header() {
                 "--color-border-accent": "rgba(217,119,6,0.30)",
                 "--color-accent": "#d97706",
                 "--color-accent-glow": "rgba(217,119,6,0.10)",
-              } as React.CSSProperties
+              } as React.CSSProperties)
             : undefined
         }
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0" onClick={() => setMobileOpen(false)}>
+          <Link
+            href="/"
+            className="flex items-center gap-2 shrink-0"
+            onClick={() => setMobileOpen(false)}
+          >
             <Image
-              src={isLight ? "/logo/logo-horizontal-light.svg" : "/logo/logo-horizontal-dark.svg"}
+              src={
+                isLight
+                  ? "/logo/logo-horizontal-light.svg"
+                  : "/logo/logo-horizontal-dark.svg"
+              }
               alt="Arctis"
               width={130}
               height={30}
               className="h-6 w-auto"
               priority
             />
-            <span className="border border-[var(--color-border-accent)] px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--color-accent)]">
-              SKILLS
-            </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-0.5" onMouseLeave={handleMouseLeave}>
+          <nav
+            className="hidden lg:flex items-center gap-0.5"
+            onMouseLeave={handleMouseLeave}
+          >
             {navItems.map((item) => {
               const hasChildren = item.children && item.children.length > 0;
               const isOpen = openDropdown === item.label;
@@ -134,7 +162,9 @@ export function Header() {
                           ? "text-[var(--color-foreground)]"
                           : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
                       }`}
-                      onClick={() => setOpenDropdown(isOpen ? null : item.label)}
+                      onClick={() =>
+                        setOpenDropdown(isOpen ? null : item.label)
+                      }
                     >
                       {item.label}
                       <svg
@@ -143,7 +173,12 @@ export function Header() {
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                     </button>
 
@@ -153,7 +188,7 @@ export function Header() {
                         onMouseEnter={() => handleMouseEnter(item.label)}
                       >
                         <div className="p-3">
-                          <div className="mb-2 font-mono text-[9px] uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
+                          <div className="mb-2 font-mono text-label uppercase tracking-[0.15em] text-[var(--color-muted-strong)]">
                             {item.label}
                           </div>
                           {item.children.map((child) => (
@@ -169,13 +204,13 @@ export function Header() {
                                     {child.label}
                                   </span>
                                   {child.badge && (
-                                    <span className="border border-[var(--color-border)] px-1 py-0.5 font-mono text-[8px] uppercase tracking-[0.12em] text-[var(--color-muted)]">
+                                    <span className="border border-[var(--color-border)] px-1 py-0.5 font-mono text-micro uppercase tracking-[0.12em] text-[var(--color-muted)]">
                                       {child.badge}
                                     </span>
                                   )}
                                 </div>
                                 {child.description && (
-                                  <p className="mt-0.5 font-mono text-[11px] text-[var(--color-muted)]">
+                                  <p className="mt-0.5 font-mono text-caption text-[var(--color-muted)]">
                                     {child.description}
                                   </p>
                                 )}
@@ -253,17 +288,29 @@ export function Header() {
 
               if (hasChildren) {
                 return (
-                  <div key={item.label} className="border-b border-[var(--color-border)]">
+                  <div
+                    key={item.label}
+                    className="border-b border-[var(--color-border)]"
+                  >
                     <button
                       className="flex w-full items-center justify-between py-4 font-mono text-sm uppercase tracking-wider text-[var(--color-foreground)]"
-                      onClick={() => setMobileExpanded(isExpanded ? null : item.label)}
+                      onClick={() =>
+                        setMobileExpanded(isExpanded ? null : item.label)
+                      }
                     >
                       {item.label}
                       <svg
                         className={`h-4 w-4 transition-transform duration-[var(--transition-fast)] ${isExpanded ? "rotate-180" : ""}`}
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                     </button>
                     {isExpanded && item.children && (
@@ -278,13 +325,13 @@ export function Header() {
                             <div className="font-mono text-sm text-[var(--color-foreground)]">
                               {child.label}
                               {child.badge && (
-                                <span className="ml-2 border border-[var(--color-border)] px-1 py-0.5 font-mono text-[8px] uppercase text-[var(--color-muted)]">
+                                <span className="ml-2 border border-[var(--color-border)] px-1 py-0.5 font-mono text-micro uppercase text-[var(--color-muted)]">
                                   {child.badge}
                                 </span>
                               )}
                             </div>
                             {child.description && (
-                              <p className="mt-1 font-mono text-[11px] text-[var(--color-muted)]">
+                              <p className="mt-1 font-mono text-caption text-[var(--color-muted)]">
                                 {child.description}
                               </p>
                             )}

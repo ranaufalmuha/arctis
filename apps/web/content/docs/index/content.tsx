@@ -1,5 +1,5 @@
 import { Badge } from "@/shared/components/ui/Badge";
-import { CommandBlock } from "@/shared/components/ui/CommandBlock";
+import { CodeBlock } from "@/shared/components/ui/CodeBlock";
 import Link from "next/link";
 
 export default function Content() {
@@ -19,7 +19,7 @@ export default function Content() {
 
       <div className="mb-10">
         <h2 className="mb-3 font-mono text-xl font-semibold tracking-tight text-[var(--color-foreground)]">1. Install ARCTIS CLI</h2>
-        <CommandBlock command="npm install -g arctis" />
+        <CodeBlock code="npm install -g arctis" lang="bash" />
       </div>
 
       <div className="mb-10">
@@ -38,7 +38,7 @@ export default function Content() {
               <div className="font-mono text-sm font-semibold text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors duration-[var(--transition-fast)]">
                 {item.label}
               </div>
-              <div className="mt-1 font-mono text-[11px] text-[var(--color-muted)]">{item.desc}</div>
+              <div className="mt-1 font-mono text-caption text-[var(--color-muted)]">{item.desc}</div>
             </Link>
           ))}
         </div>
@@ -46,7 +46,7 @@ export default function Content() {
 
       <div className="mb-10">
         <h2 className="mb-3 font-mono text-xl font-semibold tracking-tight text-[var(--color-foreground)]">3. Install the Skill</h2>
-        <CommandBlock command="npx arctis add prismatic-architecture --all" />
+        <CodeBlock code="npx arctis add prismatic-architecture --all" lang="bash" />
         <p className="mt-3 font-mono text-sm text-[var(--color-muted)]">
           Installs into Claude Code, OpenCode, and Codex simultaneously.
         </p>

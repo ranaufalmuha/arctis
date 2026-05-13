@@ -67,7 +67,7 @@ export function SearchPalette() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex h-7 min-w-0 items-center gap-2 border border-[var(--color-border)] bg-[var(--color-panel)] px-3 text-left font-mono text-[10px] text-[var(--color-muted)] hover:border-[var(--color-border-strong)] transition-colors duration-[var(--transition-fast)]"
+        className="flex h-7 min-w-0 items-center gap-2 border border-[var(--color-border)] bg-[var(--color-panel)] px-3 text-left font-mono text-overline text-[var(--color-muted)] hover:border-[var(--color-border-strong)] transition-colors duration-[var(--transition-fast)]"
       >
         <svg className="h-3 w-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -98,7 +98,7 @@ export function SearchPalette() {
               />
               <button
                 onClick={() => setOpen(false)}
-                className="font-mono text-[10px] uppercase tracking-wider text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
+                className="font-mono text-overline uppercase tracking-wider text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
               >
                 Esc
               </button>
@@ -125,7 +125,7 @@ export function SearchPalette() {
                       {item.label}
                     </span>
                     {item.meta?.type && (
-                      <span className="ml-auto shrink-0 font-mono text-[9px] uppercase tracking-[0.1em] text-[var(--color-muted-strong)]">
+                      <span className="ml-auto shrink-0 font-mono text-label uppercase tracking-[0.1em] text-[var(--color-muted-strong)]">
                         {item.meta.type}
                       </span>
                     )}

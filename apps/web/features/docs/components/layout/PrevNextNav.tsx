@@ -18,7 +18,7 @@ export function PrevNextNav() {
             href={prev.href}
             className="group flex h-full flex-col justify-center border-r border-[var(--color-border)] px-4 py-5 transition-colors duration-[var(--transition-fast)] hover:bg-[var(--color-panel-strong)]"
           >
-            <span className="mb-1 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-muted-strong)]">
+            <span className="mb-1 font-mono text-overline uppercase tracking-[0.12em] text-[var(--color-muted-strong)]">
               ← Previous
             </span>
             <span className="font-mono text-sm text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors duration-[var(--transition-fast)]">
@@ -33,7 +33,7 @@ export function PrevNextNav() {
             href={next.href}
             className="group flex h-full flex-col justify-center px-4 py-5 transition-colors duration-[var(--transition-fast)] hover:bg-[var(--color-panel-strong)]"
           >
-            <span className="mb-1 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--color-muted-strong)]">
+            <span className="mb-1 font-mono text-overline uppercase tracking-[0.12em] text-[var(--color-muted-strong)]">
               Next →
             </span>
             <span className="font-mono text-sm text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors duration-[var(--transition-fast)]">

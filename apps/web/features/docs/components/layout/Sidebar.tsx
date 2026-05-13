@@ -90,7 +90,7 @@ function SidebarGroup({
             >
               <span className="truncate">{item.label}</span>
               {item.badge && (
-                <span className="ml-auto shrink-0 border border-[var(--color-border-accent)] px-1 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-[var(--color-accent)]">
+                <span className="ml-auto shrink-0 border border-[var(--color-border-accent)] px-1 py-0.5 font-mono text-label uppercase tracking-[0.1em] text-[var(--color-accent)]">
                   {item.badge}
                 </span>
               )}

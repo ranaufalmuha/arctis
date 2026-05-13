@@ -1,3 +1,4 @@
+import { CodeBlock } from "@/shared/components/ui/CodeBlock";
 import { Section } from "@/shared/components/ui/Section";
 import { HairlineDivider } from "@/shared/components/ui/HairlineDivider";
 
@@ -38,7 +39,7 @@ export default function Content() {
   return (
     <div className="py-8">
       <Section glowAccent>
-        <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-accent)]">
+        <div className="mb-3 font-mono text-overline uppercase tracking-[0.2em] text-[var(--color-accent)]">
           DOCUMENTATION
         </div>
         <h1 className="mb-4 font-mono text-4xl font-bold tracking-tight text-[var(--color-foreground)]">
@@ -105,11 +106,7 @@ export default function Content() {
         <h2 className="mb-6 font-mono text-2xl font-semibold tracking-tight text-[var(--color-foreground)]">
           Full Folder Structure
         </h2>
-        <div className="border border-[var(--color-border)] bg-[var(--color-panel)] p-6">
-          <pre className="overflow-x-auto font-mono text-xs leading-relaxed text-[var(--color-muted)]">
-            {FOLDER_TREE}
-          </pre>
-        </div>
+        <CodeBlock code={FOLDER_TREE} lang="text" />
         <div className="mt-6 space-y-3">
           {[
             {
