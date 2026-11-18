@@ -1,139 +1,164 @@
-# Arctis
+# ARCTIS
 
-A modern Next.js application built with Turborepo monorepo architecture.
+Open-source React component registry with better taste.
 
-## Using this example
+ARCTIS is a static documentation site and a [shadcn-compatible registry](https://ui.shadcn.com/docs/registry). Components are distributed as source files, not as an npm component package. Install one with the shadcn CLI, then own the code.
 
-Run the following command:
-
-```sh
-npx create-turbo@latest
+```bash
+pnpm dlx shadcn@latest add @arctis/glow-button
 ```
 
-## What's inside?
+- Live catalog with search, categories, previews, props, and source
+- Namespace and URL installs through the official shadcn CLI
+- Accessible components with reduced-motion fallbacks
+- Tailwind CSS v4 tokens, zero-radius geometry, hairline borders, layered panels
+- Fraunces italic display, IBM Plex Mono labels and code, system sans body
+- Static build with registry JSON generated at `/r/registry.json`
 
-This Turborepo includes the following packages/apps:
+## Stack
 
-### Apps and Packages
+| Tool                                 | Role                                                |
+| ------------------------------------ | --------------------------------------------------- |
+| [Vite+](https://viteplus.dev) (`vp`) | dev server, build, lint, format, type checks, tests |
+| React 19 + React Router              | SPA and route-level code splitting                  |
+| TypeScript                           | strict types, no emit                               |
+| Tailwind CSS v4                      | design tokens and utilities                         |
+| shadcn/ui conventions                | `components.json`, `cn()`, registry schema          |
+| pnpm                                 | package manager                                     |
 
-- `web`: a [Next.js 16](https://nextjs.org/) app featuring:
-  - **Marketing Site** - Landing page with responsive layout (Header/Footer)
-  - **Documentation System** - Full docs platform with sidebar navigation, content rendering, and code blocks
-  - **UI Components** - Reusable components (Button, Hero, Code Block, Flair Cursor Follower)
-  - **Background Effects** - Noise and Stars background animations
-  - **SEO** - Automatic sitemap and robots.txt generation
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+## Quick start
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+Requirements: Node.js 20+, pnpm 9+, and the Vite+ CLI (`vp`).
 
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+```bash
+vp install
+vp dev
 ```
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+`vp dev` builds the registry JSON first, then starts the Vite dev server.
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+## Commands
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+| Command                  | What it does                                             |
+| ------------------------ | -------------------------------------------------------- |
+| `pnpm dev`               | Generate `public/r/` and start Vite+ dev server          |
+| `pnpm build`             | Generate registry JSON, then production build with Vite+ |
+| `pnpm preview`           | Serve the production build                               |
+| `pnpm check`             | Format, lint, and type-check in one pass                 |
+| `pnpm lint`              | Oxlint only                                              |
+| `pnpm fmt`               | Oxfmt only                                               |
+| `pnpm typecheck`         | `tsc --noEmit`                                           |
+| `pnpm test`              | Vitest through Vite+                                     |
+| `pnpm registry:build`    | `shadcn build` into `public/r/`                          |
+| `pnpm registry:validate` | Validate `registry.json` and item files                  |
+| `pnpm arch:setup`        | Install the architecture validator dependency (once)     |
+| `pnpm arch:check`        | Run the Arctis frontend architecture validator           |
+| `pnpm verify`            | Architecture, registry, checks, tests, and build         |
 
-### Develop
+## Architecture
 
-To develop all apps and packages, run the following command:
+`src/` contains exactly three architectural directories, plus `main.tsx`:
 
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
+```text
+src/
+├── pages/      route registration and thin page composition
+├── feat/       feature implementation (isolated per feature)
+│   ├── site/           header, footer, theme, layout
+│   ├── home/           marketing composition
+│   ├── showcase/       catalog, demos, component docs
+│   └── docs-content/   installation documentation
+└── shared/     feature-independent primitives
+    ├── components/
+    │   ├── ui/         shadcn-style primitives
+    │   └── registry/   components distributed by the registry
+    ├── constants/
+    ├── hooks/
+    ├── lib/
+    ├── assets/
+    └── styles/
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+Dependencies flow `pages → feat → shared`. Features never import other features, and `shared/` never imports from `feat/` or `pages/`. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and [AGENTS.md](AGENTS.md).
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+Docs routes:
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
+```text
+/docs                 installation
+/docs/components      full component catalog
+/docs/components/:name component detail
+/docs/blocks          block documentation
 ```
 
-## Useful Links
+`/components` and `/components/:name` redirect to the docs routes.
 
-Learn more about the power of Turborepo:
+## Registry
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+`registry.json` is the source of truth. It declares the registry, each item's file targets, npm dependencies, categories, CSS, and docs. Source files live under `src/shared/components/registry/` so they follow the same ownership rules as the site. Components import `cn()` from `@/lib/utils`, which `shadcn init` creates; a standalone `utils` item is also published in case it needs restoring.
+
+Generated output lives outside `src/`:
+
+```text
+public/r/registry.json      catalog
+public/r/{name}.json        one file per item
+```
+
+`pnpm registry:build` runs `shadcn build`; `pnpm build` runs it automatically before Vite+ compiles the site. Deploy `dist/` plus `public/r/` (copied by Vite) to any static host.
+
+### Install by namespace
+
+Add the namespace once:
+
+```bash
+pnpm dlx shadcn@latest registry add @arctis=https://arctis.dev/r/{name}.json
+```
+
+This writes the following to `components.json`:
+
+```json
+{
+  "registries": {
+    "@arctis": "https://arctis.dev/r/{name}.json"
+  }
+}
+```
+
+Then:
+
+```bash
+pnpm dlx shadcn@latest add @arctis/glow-button
+```
+
+Direct namespace installation requires the registry configuration above, or official registration of the `@arctis` namespace in the shadcn registry index. Without either, use the URL form.
+
+### Install by URL
+
+```bash
+pnpm dlx shadcn@latest add https://arctis.dev/r/glow-button.json
+```
+
+### Local verification
+
+```bash
+pnpm build
+pnpm preview
+# in another terminal, inside a clean React + Tailwind + shadcn project:
+pnpm dlx shadcn@latest add http://localhost:4173/r/glow-button.json
+```
+
+## Deployment
+
+The site is a static SPA. `vercel.json` and `public/_redirects` provide SPA fallbacks. Asset URLs honour `VITE_BASE`, so subpath hosting works:
+
+```bash
+VITE_BASE=/arctis/ pnpm build
+```
+
+For GitHub Pages, `.github/workflows/deploy-pages.yml` builds with the repository base path and writes a `404.html` fallback.
+
+## Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md). Registry additions must keep the Arctis architecture validator, registry validation, lint, types, tests, and build green.
+
+## License
+
+[MIT](LICENSE) © ARCTIS

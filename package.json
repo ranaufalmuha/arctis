@@ -1,20 +1,71 @@
 {
   "name": "arctis",
+  "version": "1.0.0",
   "private": true,
+  "description": "An open-source React component registry with better taste. Built with Vite+, React, Tailwind CSS v4, and shadcn/ui.",
+  "keywords": [
+    "component-registry",
+    "design-system",
+    "open-source",
+    "react",
+    "shadcn",
+    "tailwindcss",
+    "vite-plus"
+  ],
+  "homepage": "https://arctis.dev",
+  "bugs": {
+    "url": "https://github.com/ranaufalmuha/arctis/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ranaufalmuha/arctis.git"
+  },
+  "type": "module",
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "dev": "pnpm registry:build && vp dev",
+    "build": "pnpm registry:build && vp build",
+    "preview": "vp preview",
+    "check": "vp check",
+    "lint": "vp lint",
+    "fmt": "vp fmt",
+    "typecheck": "tsc --noEmit",
+    "test": "vp test",
+    "registry:build": "shadcn build",
+    "registry:validate": "shadcn registry validate",
+    "arch:setup": "npm ci --prefix .agents/skills/frontend",
+    "arch:check": "node .agents/skills/frontend/scripts/validate-architecture.mjs .",
+    "verify": "pnpm arch:check && pnpm registry:validate && pnpm check && pnpm test && pnpm build"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.74.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router": "^8.5.1",
+    "shiki": "^4.6.0",
+    "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
-    "prettier": "^3.7.4",
-    "turbo": "^2.7.1",
-    "typescript": "5.9.2"
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "shadcn": "^4.23.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^7.0.2",
+    "vite": "npm:@voidzero-dev/vite-plus-core@8.3.8000",
+    "vite-plus": "^1.7.0",
+    "vitest": "^5.1.0"
   },
-  "packageManager": "pnpm@9.0.0",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@12.21.0",
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:@voidzero-dev/vite-plus-core@8.3.8000"
+    }
   }
 }

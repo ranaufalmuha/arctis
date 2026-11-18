@@ -1,8 +1,3 @@
 {
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ],
-  "cSpell.words": ["ARCTIS"]
+  "cSpell.words": ["ARCTIS", "shadcn", "shiki", "Vite"]
 }

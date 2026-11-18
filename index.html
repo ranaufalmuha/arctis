@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARCTIS — React components with better taste</title>
+    <meta
+      name="description"
+      content="An open-source React component registry. Copy accessible, animated components into your project with the shadcn CLI."
+    />
+    <meta name="theme-color" content="#050505" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ARCTIS" />
+    <meta
+      property="og:title"
+      content="ARCTIS — React components with better taste"
+    />
+    <meta
+      property="og:description"
+      content="An open-source React component registry. Copy accessible, animated components into your project with the shadcn CLI."
+    />
+    <meta property="og:url" content="https://arctis.dev" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="%BASE_URL%logo/logo-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/shared/styles/globals.css" />
+    <script>
+      // Apply the stored theme before paint to avoid a flash.
+      (() => {
+        const stored = localStorage.getItem("arctis-theme");
+        const dark = stored ? stored === "dark" : true;
+        document.documentElement.classList.toggle("dark", dark);
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

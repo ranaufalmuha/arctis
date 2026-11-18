@@ -1,0 +1,121 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "arctis",
+  "homepage": "https://arctis.dev",
+  "items": [
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "Utils",
+      "description": "The cn() class merge helper used by ARCTIS registry components.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "src/shared/lib/utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/utils.ts"
+        }
+      ]
+    },
+    {
+      "name": "glow-button",
+      "type": "registry:ui",
+      "title": "Glow Button",
+      "description": "A squared button with a colored halo that blooms on hover and keyboard focus.",
+      "categories": ["buttons", "animation"],
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "src/shared/components/registry/glow-button.tsx",
+          "type": "registry:ui",
+          "target": "@ui/glow-button.tsx"
+        }
+      ],
+      "docs": "Import from @/components/ui/glow-button. The halo is CSS-only and respects reduced motion."
+    },
+    {
+      "name": "spotlight-card",
+      "type": "registry:ui",
+      "title": "Spotlight Card",
+      "description": "A bordered surface with a radial spotlight that follows the pointer. Pointer tracking uses CSS variables, so moving the mouse never re-renders React.",
+      "categories": ["cards", "interaction"],
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "src/shared/components/registry/spotlight-card.tsx",
+          "type": "registry:ui",
+          "target": "@ui/spotlight-card.tsx"
+        }
+      ],
+      "docs": "Import from @/components/ui/spotlight-card. Move the pointer over the card to see the radial highlight."
+    },
+    {
+      "name": "text-shimmer",
+      "type": "registry:ui",
+      "title": "Text Shimmer",
+      "description": "A looping gradient sweep clipped to the text. Motion is disabled automatically when the visitor prefers reduced motion.",
+      "categories": ["text", "animation"],
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "src/shared/components/registry/text-shimmer.tsx",
+          "type": "registry:ui",
+          "target": "@ui/text-shimmer.tsx"
+        }
+      ],
+      "css": {
+        "@keyframes arctis-shimmer": {
+          "from": {
+            "background-position": "200% center"
+          },
+          "to": {
+            "background-position": "-200% center"
+          }
+        },
+        ".arctis-shimmer": {
+          "animation": "arctis-shimmer var(--shimmer-duration, 4s) linear infinite"
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".arctis-shimmer": {
+            "animation": "none !important"
+          }
+        }
+      },
+      "docs": "Import from @/components/ui/text-shimmer. The keyframes are installed into your global CSS."
+    },
+    {
+      "name": "aurora-background",
+      "type": "registry:ui",
+      "title": "Aurora Background",
+      "description": "Three drifting color layers behind a hairline grid. A section-scale backdrop that stays out of the accessibility tree.",
+      "categories": ["backgrounds", "animation"],
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "src/shared/components/registry/aurora-background.tsx",
+          "type": "registry:ui",
+          "target": "@ui/aurora-background.tsx"
+        }
+      ],
+      "css": {
+        "@keyframes arctis-aurora": {
+          "0%, 100%": {
+            "transform": "translate3d(-6%, -4%, 0) scale(1)"
+          },
+          "50%": {
+            "transform": "translate3d(8%, 6%, 0) scale(1.15)"
+          }
+        },
+        ".arctis-aurora": {
+          "animation": "arctis-aurora var(--aurora-duration, 14s) ease-in-out infinite"
+        },
+        "@media (prefers-reduced-motion: reduce)": {
+          ".arctis-aurora": {
+            "animation": "none !important"
+          }
+        }
+      },
+      "docs": "Import from @/components/ui/aurora-background. The keyframes are installed into your global CSS."
+    }
+  ]
+}
